@@ -6,16 +6,14 @@ menuorder: 6
 Lectures
 ========
 
-This page provides slides and other supplemental learning materials from the
-course's lectures.
-
-The complete lecture schedule is available in
+Lectures take place in EL41 or EL42; the complete schedule is available in
 [TimeEdit](\$schedule\$). Note that if you use an iCal or vCal-compatible
-calendar, you can download the course schedule from TimeEdit.
+calendar, you can download the course schedule from [TimeEdit](\$schedule\$).
 
 The following is a preliminary plan for the lectures. Changes will be announced
 on this web site. Slides from the lectures will normally be available on this
-page in advance of the lecture.
+page in advance of the lecture. Last year's slides are already here. Changes may
+occur; a new version is indicated by changing 'old' to 'new' in the links below.
 
 <table class="lectures" border="1" cellspacing="0" cellpadding="5" valign="top">
 <tr>
@@ -37,3 +35,5 @@ page in advance of the lecture.
 </tr>
 \$endfor\$
 </table>
+
+<br/>

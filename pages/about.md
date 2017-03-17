@@ -7,17 +7,28 @@ menuorder: 1
 About the Course
 ================
 
-
 <a name="course_syllabus"></a>
 
 Course Syllabus
 ---------------
 
-The course has a practical goal: learning to create a course website
-using CCWF.
+The course has a practical goal: the participants will build a compiler for a
+small programming language called Javalette. Javalette is an imperative
+language, a subset of C and of Java.
 
-The official syllabus can be found
-[here](\$syllabus\$).
+The complete project will include one front end (lexer, parser and type-checker)
+and at least one backend, generating LLVM code.  Optional extensions include
+source language extensions and a native x86 backend.
+
+To reach this goal, quite a few theories and techniques are necessary: grammars,
+lexers, parsers, abstract syntax, type systems, syntax-directed translation,
+code analysis, register allocation, optimization, etc.  Many of these techniques
+are supported by tools used in all state-of-the-art compiler construction.
+Mastering these techniques will help the participants to achieve the practical
+goal efficiently and reliably.  The mastery of them is also useful for many
+other programming tasks in industry and in academia.
+
+The official syllabus can be found [here]($syllabus$).
 
 
 <a name="teachers"></a>
@@ -81,10 +92,10 @@ Assistants
 </ul>
 
 
-General questions concerning the course, including examination issues
-(deadline extensions, etc) should be directed to \$teacher\$.
-
-The assistants are responsible for grading and supervising labs.
+General questions concerning the course, including examination issues (deadline
+extensions, etc) should be directed to \$teacher\$. Supervision for the project
+is also offered by \$teacher\$ during office hours. The teachers and assistants are
+responsible for grading and supervising labs.
 
 
 <a name="submissions"></a>
@@ -92,29 +103,28 @@ The assistants are responsible for grading and supervising labs.
 Submitting assignments
 ----------------------
 
-In this course we use the web-based Fire system for lab submission.
-Any web browser should be usable for submissions.
+In this course we use the web-based [Fire](\$submissions\$) system for lab
+submission. Any web browser should be usable for submissions.
 
 ### Registration
 
 When you first come to Fire, you must register in the system. Follow the
 instructions on screen. Your login id in the system is your email address, but
-you must also give your name and personnummer, so that we can report your
-result when you have finished all your assignments.
-Note that an email is sent to you during registration; registration is
-completed by following a link included in that mail.
-This email address is also used to send you an email when your submissions
-have been graded.
+you must also give your name and personnummer, so that we can report your result
+when you have finished all your assignments.  Note that an email is sent to you
+during registration; registration is completed by following a link included in
+that mail.  This email address is also used to send you an email when your
+submissions have been graded.
 
-After registration, you will come to your Fire home page, where you submit
-assignments. On the top of this page you are asked to join a group.
-Even if you do your project alone you must create a (one-person) group.
+After registration, you will come to your [Fire](\$submissions\$) home page,
+where you submit assignments. On the top of this page you are asked to join a
+group. Even if you do your project alone you must create a (one-person) group.
 Only groups can submit.
 
 ### Submitting
 
-The assignments are linked from your Fire home page.
-To submit an assignment, click on the link for that assignment and follow
+The assignments are linked from your [Fire](\$submissions\$) home page. To
+submit an assignment, click on the link for that assignment and follow
 instructions. Two things should be noted:
 
 * Your solution will include several files, in different directories.

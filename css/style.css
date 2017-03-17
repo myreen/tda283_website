@@ -1,6 +1,6 @@
 /* Global styling */
 body {
-    font-family: sans-serif;
+    font-family: 'Fira Sans', sans-serif;
 }
 
 h1 {
@@ -30,6 +30,11 @@ li {
     padding: 0.5em;
 }
 
+/* logo */
+#logo {
+    margin-top: 40px;
+    width: 140px;
+}
 
 /* The left sidebar and menu */
 #sidebar {
@@ -107,7 +112,7 @@ li {
 #sidebarheading {
     list-style: none;
     text-align: left;
-    font-family: verdana;
+    font-family: 'Fira Sans';
     text-align: center;
     margin-left: -4em;
 }
@@ -115,7 +120,7 @@ li {
 #menu {
     margin-top: 2em;
     margin-bottom: 2em;
-    font-family: verdana;
+    font-family: 'Fira Sans';
     list-style: none;
 }
 
