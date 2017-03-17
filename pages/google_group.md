@@ -1,6 +1,6 @@
 ---
 title: Google group
-menuorder: 5
+menuorder: 8
 ---
 
 <script>window.location.href = "$group$";</script>

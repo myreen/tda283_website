@@ -2,6 +2,7 @@
 title: About the course
 submenu: course_syllabus teachers submissions
 menuorder: 1
+template: wide
 ---
 
 About the Course

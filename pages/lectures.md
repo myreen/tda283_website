@@ -1,6 +1,7 @@
 ---
 title: Lectures
-menuorder: 6
+menuorder: 2
+template: wide
 ---
 
 Lectures

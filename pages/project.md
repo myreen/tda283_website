@@ -1,6 +1,6 @@
 ---
 title: Project description
-menuorder: 4
+menuorder: 3
 submenu: deadlines grading javalette frontend extensions testing code_generation extension_hints submission_format
 ---
 

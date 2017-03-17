@@ -1,6 +1,7 @@
 ---
 title: Examination
-menuorder: 3
+menuorder: 4
+template: wide
 ---
 
 Examination

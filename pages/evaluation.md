@@ -1,6 +1,7 @@
 ---
 title: Course evaluation
-menuorder: 10
+menuorder: 6
+template: wide
 ---
 
 Course evaluation

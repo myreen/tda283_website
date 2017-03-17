@@ -1,7 +1,9 @@
 ---
 title: Resources
-menuorder: 7
+menuorder: 5
+template: wide
 ---
+
 Course literature and other resources
 =====================================
 

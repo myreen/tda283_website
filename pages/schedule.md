@@ -1,6 +1,6 @@
 ---
 title: Schedule
-menuorder: 5
+menuorder: 6
 ---
 
 <script>window.location.href = "$schedule$";</script>
