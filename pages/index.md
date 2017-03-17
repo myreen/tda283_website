@@ -1,6 +1,7 @@
 ---
 title: Home
 menuorder: 0
+template: wide
 ---
 
 Compiler Construction

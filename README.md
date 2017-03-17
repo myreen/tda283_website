@@ -142,12 +142,36 @@ Pages can have the following metadata items:
   arbitrary (but consistent; i.e. will always be the same).
   If `menuorder` is either `none` or a negative number, the page will not
   appear in the main menu at all (but can, of course, still be linked manually).
+* `template`. The name of the template to use for this page.
+  Templates live in the `templates` subdirectory, so if a page wants to use
+  `mytemplate` as its template, the file `templates/mytemplate.html` will be
+  loaded.
 
 
 ### Creating a page with a submenu
 
 See the section [creating a page](#create_page); more specifically, the
 discussion of the `submenu` metadata item.
+
+<a name="custom_template"></a>
+
+### Creating a page with a custom template
+
+See the section [creating a page](#create_page); more specifically, the
+discussion of the `template` metadata item.
+In short:
+
+1. Create a new template (or copy from `default.html` and modify) in the
+   `templates` directory.
+2. Set the `template` metadata variable to the name of your template, on all
+   pages that should use the custom template.
+
+
+### Creating a page with very wide content
+
+Create a page as usual, but set the `template` metadata item for the page
+to `wide`. This will apply the `widecontent` CSS class to
+the contents of your page.
 
 
 ### Creating a page with a quickref bar
@@ -169,6 +193,66 @@ Anchors are inserted just like how they are inserted for use with a submenu.
 The file `pages/quickref.md` contains an example usage of the quickref bar.
 
 
+### Including code listings in pages
+
+CCWF lets you include code listings with optional syntax highlighting on any
+page. To include a one-line code snippet into running text, simply enclose it
+in backticks: `` `print "hello"` ``.
+These short snippets do not have syntax highlighting.
+
+To include longer code listings, you can enclose a block of code in triple
+backticks, where each set of backticks reside on a new line:
+
+````
+```
+Beautiful listings
+This one has no highlighting
+It is a haiku
+```
+````
+
+To add syntax highlighting to a code block, include the name of the language
+the code is written in right next to the opening triple backticks:
+
+````
+```haskell
+fib :: Integer -> Integer
+fib 1 = 1
+fib 2 = 1
+fib n = fib (n-1) + fib (n-2)
+```
+````
+
+If adding syntax highlighting to your code block doesn't change its appearance,
+or has some other funny effect on the look of the page or the code block, your
+language is most likely not supported.
+In which case, simply leaving the language out will at least give you a
+fixed-width font and a uniform look across code listings.
+
+
+### Changing the look and feel of the entire website
+
+To change the global look of your site, you should preferably make changes to
+the CSS files in the `css` subdirectory.
+The file `css/style.css` governs most of the site's look, such as the fonts,
+colors, text decorations, etc.
+
+For more drastic changes, such as completely changing the page structure or
+adding some content to every single page, you will want to modify the default
+template `templates/default.html`.
+To only change the structure of *some* pages, you are better off creating a
+new template, for use only on those pages. See the section
+[creating a page with a custom template](#custom_template) for information
+on how to do this.
+
+When modifying either templates or CSS styling, it is **very important** to
+test your changes both using a normal-sized browser window, and with your
+browser window shrunk to <800 pixels wide (or, even better, on an actual
+mobile device).
+Otherwise, you risk breaking your website for either mobile or non-mobile
+devices.
+
+
 Troubleshooting
 ---------------
 
@@ -185,4 +269,7 @@ Troubleshooting
   list, it is strongly recommended to use explicit HTML in your markdown pages,
   since the template compiler and the markdown compiler sometimes disagree on
   what some particular space or newline means.
-  See the list of assistants on `pages/about.md` 
+  See the list of assistants on `pages/about.md`.
+* If your code listings look weird, try not specifying a language.
+  You won't get syntax highlighting, but you'll at least get a fixed-width font
+  and a uniform look without messing up your page.
