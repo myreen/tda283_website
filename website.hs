@@ -125,4 +125,9 @@ info = Info
       ]
   }
 
-main = mkWebsite (Website info materials)
+subst = Subst
+    [ ("javalette", "[Javalette](/project#javalette)")
+    , ("timeedit" , "[TimeEdit](/schedule))")
+    ]
+
+main = mkWebsite (Website info materials subst)

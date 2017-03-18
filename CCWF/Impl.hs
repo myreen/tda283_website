@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings, RecordWildCards, TupleSections #-}
 module CCWF.Impl where
+
 import Hakyll
 import Control.Monad
 import Data.Char
@@ -14,7 +15,7 @@ import CCWF.Config
 
 -- | Build a website from a configuration.
 mkWebsite :: Website -> IO ()
-mkWebsite (Website (Info{..}) (Materials{..})) = do
+mkWebsite (Website (Info{..}) (Materials{..}) (Subst subst)) = do
   -- Check that all lecture files are present
   let files = [ "./files/" ++ file
               | fs <- map lectureFiles lectures
@@ -76,7 +77,7 @@ mkWebsite (Website (Info{..}) (Materials{..})) = do
             -- Context for the page content; contains metadata set in the
             -- markdown file for each page, as well as some info set at the
             -- top of this file.
-            ctx = mconcat
+            ctx = mconcat $
               [ constField "year" (show courseYear)
               , constField "coursename" courseName
               , constField "coursecode" courseCode
@@ -105,7 +106,9 @@ mkWebsite (Website (Info{..}) (Materials{..})) = do
                   else mempty
               , listField "latestnews" defaultContext (pure $ take 3 newsItemItems)
               , defaultContext
-              ]
+              ] ++ 
+              -- Substitution context
+              [ constField k v | (k, v) <- subst]
         applyMeAsTemplate ctx ctx
   where
     newsItemItems = map (Item (fromFilePath "")) newsItems

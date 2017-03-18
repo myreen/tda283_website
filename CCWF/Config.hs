@@ -8,6 +8,7 @@ type URL = String
 data Website = Website
   { courseInfo      :: Info
   , courseMaterials :: Materials
+  , courseSubst     :: Subst
   }
 
 -- | Lectures, files and news items: course materials that will likely be
@@ -81,6 +82,9 @@ data Info = Info
     --   Available to pages as @deadline1/2/3/...@.
   , labDeadlines   :: [String]
   }
+
+-- | Substitutions allow you to write abbreviations for phrases you often use.
+data Subst = Subst [(String, String)]
 
 -- | Bio for the teacher responsible for the course.
 --   Name, phone and email are mandatory.

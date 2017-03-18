@@ -1,7 +1,7 @@
 -- | Chalmers course 
 module CCWF
   ( -- * Configuring and updating pages
-    Website (..), Info (..), Materials (..)
+    Website (..), Info (..), Materials (..), Subst(..)
   , URL, Teacher (..), Lecture (..)
 
     -- * Building the website
