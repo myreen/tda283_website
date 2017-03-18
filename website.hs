@@ -119,8 +119,8 @@ info = Info
     -- The deadlines for the labs.
     -- Available to templates as @deadline1/2/3/n@.
   , labDeadlines =
-      [ "Sunday, April 8 at 23:59"
-      , "Sunday, April 20 at 23:59"
+      [ "Sunday, April 16 at 23:59"
+      , "Sunday, May 7 at 23:59"
       , "Sunday, May 21 at 23:59"
       ]
   }
