@@ -110,7 +110,7 @@ info = Info
     -- URL of the lab submission system used this year, if any.
     -- Don't forget to update!
     -- Available to templates as @submissions@.
-  , submissionURL = Just "https://cc-lp4-17.frs.cse.chalmers.se"
+  , submissionURL = Just fire
 
     -- URL of the course's official schedule. Available to templates as
     -- @schedule@.
@@ -125,9 +125,14 @@ info = Info
       ]
   }
 
+fire = "https://cc-lp4-17.frs.cse.chalmers.se"
+
 subst = Subst
     [ ("javalette", "[Javalette](/project#javalette)")
-    , ("timeedit" , "[TimeEdit](/schedule))")
+    , ("timeedit",  "[TimeEdit](/schedule)")
+    , ("fire",      "[Fire]" ++ parens fire)
     ]
+  where
+    parens x = "(" ++ x ++ ")"
 
 main = mkWebsite (Website info materials subst)
