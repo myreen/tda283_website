@@ -8,8 +8,8 @@ Lectures
 ========
 
 Lectures take place in EL41 or EL42; the complete schedule is available in
-[TimeEdit](\$schedule\$). Note that if you use an iCal or vCal-compatible
-calendar, you can download the course schedule from [TimeEdit](\$schedule\$).
+\$timeedit\$. Note that if you use an iCal or vCal-compatible calendar, you can
+download the course schedule from \$timeedit\$.
 
 The following is a preliminary plan for the lectures. Changes will be announced
 on this web site. Slides from the lectures will normally be available on this

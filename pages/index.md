@@ -47,7 +47,7 @@ Course essentials
     *Deadlines are strict*; extensions will only be granted under
     exceptional circumstances, and even then only if requested *before the
     deadline in question has passed*.
-* The oral exam tests that *all group members* have been actively involved in
+* The individual oral exam tests that *all group members* have been actively involved in
     the project and share a full understanding of the compiler.
     You will be asked to *present your compiler* to the examiner, who will
     then ask you some questions about it.
@@ -55,7 +55,7 @@ Course essentials
     answer.
 * You must hand in your final submission *before* being allowed to take the
     oral exam. No exceptions to this rule will be considered.
-* Your grade is determined by *the extensions you implement*.
+* Your grade is determined by *the [extensions](/project#extensions) you implement*.
     Your performance on the oral exam will *not* affect your grade other than
     passing or failing.
 * The course has a [Google group](\$group\$) where you can find a group
@@ -63,5 +63,5 @@ Course essentials
     Detailed questions about your own code are better asked by email to your
     supervisor or in person during office hours.
 * Relevant litterature, software tools, and the `runtime.ll` file containing
-    the I/O routines for your Javalette programs can be found in the
+    the `I/O` routines for your Javalette programs can be found in the
     [resources](/resources) section.

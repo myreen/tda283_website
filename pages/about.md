@@ -14,7 +14,7 @@ Course Syllabus
 ---------------
 
 The course has a practical goal: the participants will build a compiler for a
-small programming language called Javalette. Javalette is an imperative
+small programming language called \$javalette\$. Javalette is an imperative
 language, a subset of C and of Java.
 
 The complete project will include one front end (lexer, parser and type-checker)
@@ -104,7 +104,7 @@ responsible for grading and supervising labs.
 Submitting assignments
 ----------------------
 
-In this course we use the web-based [Fire](\$submissions\$) system for lab
+In this course we use the web-based \$fire\$ system for lab
 submission. Any web browser should be usable for submissions.
 
 ### Registration
@@ -117,24 +117,24 @@ during registration; registration is completed by following a link included in
 that mail.  This email address is also used to send you an email when your
 submissions have been graded.
 
-After registration, you will come to your [Fire](\$submissions\$) home page,
-where you submit assignments. On the top of this page you are asked to join a
-group. Even if you do your project alone you must create a (one-person) group.
-Only groups can submit.
+After registration, you will come to your \$fire\$ home page, where you submit
+assignments. On the top of this page you are asked to join a group. Even if you
+do your project alone you must create a (one-person) group.  Only groups can
+submit.
 
 ### Submitting
 
-The assignments are linked from your [Fire](\$submissions\$) home page. To
-submit an assignment, click on the link for that assignment and follow
-instructions. Two things should be noted:
+The assignments are linked from your \$fire\$ home page. To submit an
+assignment, click on the link for that assignment and follow instructions. Two
+things should be noted:
 
-* Your solution will include several files, in different directories.
-    You must follow the instructions in the lab description on where to
-    place files and how to name them.
+* Your solution will include several files, in different directories. You *must*
+  follow the [instructions](/project#submission_format) in the lab description
+  on where to place files and how to name them.
 * Submitting an assignment is a two-step procedure. First, you upload a file
-    with your solution: when you click the Upload button, a file chooser
-    window is opened allowing you to select a file.
-    The second step is to actually submit your solution, by clicking the
-    *Submit* button. **It is not enough to only upload; you must also submit!**
+  with your solution: when you click the Upload button, a file chooser window is
+  opened allowing you to select a file.  The second step is to actually submit
+  your solution, by clicking the *Submit* button. **It is not enough to only
+  upload; you must also submit!**
 
 [Go to the submission system](\$submissions\$).

@@ -33,18 +33,20 @@ submenu: deadlines grading javalette frontend extensions testing code_generation
 
 Project summary
 ===============
-This document describes the compiler project that you will do as the main part of the
-examination for the Compiler construction course. The project is done individually or in groups
-of two students (recommended). The project is split into three parts:
+This document describes the compiler project that you will do as the main part
+of the examination for the Compiler Construction course. The project is done
+individually or in groups of two students (recommended). The project is split
+into three parts:
 
-1. Front end for the language Javalette, i.e. lexical analysis, parsing, building abstract syntax, 
-  type-checking and a few static checks. This part builds mainly on knowledge that you should have
-  acquired previously, e.g. in the course Programming Language Technology.
-2. A back end that generates code for LLVM (the Low Level Virtual
-  Machine). LLVM are described in more detail later in this document.
-3. Extensions to the base language. There are several optional
-  extensions that you may choose to do for the third part of the
-  project, as detailed below.
+1. Front end for the language \$javalette\$, i.e. lexical analysis, parsing,
+   building abstract syntax, type-checking and a few static checks. This part
+   builds mainly on knowledge that you should have acquired previously, e.g. in
+   the course Programming Language Technology.
+2. A back end that generates code for LLVM (the Low Level Virtual Machine). LLVM
+   are described in more detail [later in this page](#code_generation).
+3. [Extensions](#extensions) to the base language. There are several optional
+   extensions that you may choose to do for the third part of the project, as
+   detailed below.
 
 
 <a name="deadlines"></a>
@@ -57,15 +59,14 @@ There are three submission deadlines, one for each part of the project:
 * **Submission A**: \$deadline1\$. At this point you must submit part 1,
     i.e. a working compiler that can parse and typecheck all programs in the
     base language and statically reject illegal programs.
-* **Submission B**: \$deadline2\$. Part 2, i.e. a complete compiler
+* **Submission B**: \$deadline2\$. Part 2, i.e., a complete compiler
     that can compile and run all programs in the base language.
 * **Submission C**: \$deadline3\$. Part 3. At least one extension to the base
-    language is required to pass the course. More extensions can be
-    implemented to get a higher grade. More information below.
+    language is required to pass the course. More [extensions](#extensions) can be
+    implemented to get a higher grade. More information [below](#grading).
 
-In addition to these two submissions, examination includes a brief
-oral exam after submission C. Exact dates will be posted on the
-course home page.
+In addition to these submissions, examination includes a brief oral exam after
+submission C. Exact dates will be posted on this course homepage.
 
 
 <a name="grading"></a>
@@ -73,63 +74,58 @@ course home page.
 Extensions, credits and grades
 ------------------------------
 
-The options for an extended project are to extend the source
-language with e.g. arrays and for loops, structures and pointers,
-object-oriented features or to generate native x86 code. There is
-also one essay project you can do which involves studying optimizations in
-the LLVM framework. You do not need to decide in advance how
-ambitious you will be; instead you should finish each stage before
-you attempt an extension.
+The options for extending the project are to extend the source language with
+e.g.  arrays and `for`-loops, structures and pointers, object-oriented features
+or to generate native x86 code. There is also one essay project you can do which
+involves studying optimizations in the LLVM framework. You do not need to decide
+in advance how ambitious you want to be; instead you should finish each stage
+before you attempt an extension.
 
 In submission C, each of the seven tasks described in the
 "[extensions](#extensions)" section gives one credit if implemented as
-described, with the exception of [x86 code generation](#x86).
-Implementing a code generator gives *two* credits, but also requires you
-to implement some optimization for your code generator, such as register
-allocation or peephole optimization.
+described, with the exception of [x86 code generation](#x86).  Implementing a
+code generator gives *two* credits, but also requires you to implement some
+optimization for your code generator, such as register allocation or peephole
+optimization.
 
-**To pass the course** and get grade 3 (or G, if you are a GU student),
-you need to submit working solutions in **all submissions**, implement at
-least **one language extension** in submission C, and pass the **oral
-exam**. To get grade 4, you must earn three credits; grade 5 (VG for GU
-students) requires five credits.
+*To pass the course* and get grade 3 (or G, if you are a GU student), you need
+to submit working solutions in *all submissions*, implement at least *one
+language extension* in submission C, and pass the *oral exam*. To get grade 4,
+you must earn three credits; grade 5 (VG for GU students) requires five credits.
 
-If you are only looking to pass the course and only get one credit
-then the project of [studying an LLVM optimization](#optstudy) is not enough.
-You must implement at least one language extension to Javalette in order to
-pass the course.
+If you are only looking to pass the course and only get one credit then the
+project extension of [studying an LLVM optimization](#optstudy) is not enough.
+You must implement at least one language extension to Javalette in order to pass
+the course.
 
-Part of the goal of a project course like this is that you shall deliver
-working code on time.
-Thus, credits will be awarded for working extensions submitted before 
-the deadline. We may allow resubmissions for minor bugfixes, but no partial
-credits will be awarded for partial solutions.
+Part of the goal of a project course, like this course, is that you shall
+deliver working code *on time*. Thus, credits will be awarded for working
+extensions submitted before the deadline. We may allow resubmissions for minor
+bugfixes, but no partial credits will be awarded for partial solutions.
 
-Finally, we note that we are making major simplifications in a
-compiler project by using virtual machines like LLVM as targets,
-rather than a real machine. This means that you can produce simple-minded
-code and rely on the respective target tools to do optimization and
-JIT compilation to machine code.
-The final lectures in the course will discuss these 
-issues, but they will not be covered in depth. On the other hand, for
-most compiling purposes the road we take is the most effective. This
-leaves fine-tuning of optimization to LLVM tools, allowing
+Finally, we note that we are making major simplifications in a compiler project
+by using virtual machines like LLVM as targets, rather than a real machine. This
+means that you can produce simple-minded code and rely on the respective target
+tools to do optimization and JIT compilation to machine code.  The final
+lectures in the course will discuss these issues, but they will not be covered
+in depth. On the other hand, for most compiling purposes the road we take is the
+most effective. This leaves fine-tuning of optimization to LLVM tools, allowing
 many source languages and front-ends to profit from this effort.
 
 
 Collaboration and academic honesty
 ----------------------------------
 
-As mentioned before, you work individually or in groups of two to three in
-this project. You must develop your own code, and you are *not* allowed to
-share your code with other students or to get, or even look at, code
-developed by them. On the other hand, we encourage discussions among
-participants in the course about the project. As long as you follow
-the simple and absolute rule not to share code, we have no objections 
-to questions asked and answered at a conceptual level. 
+As mentioned before, you work individually or in groups of two to three in this
+project. You must develop your own code, and you are *not* allowed to share your
+code with other students or to get, or even look at, code developed by them. On
+the other hand, we encourage discussions among participants in the course about
+the project. As long as you follow the simple and absolute rule not to share
+code, we have no objections to questions asked and answered at a conceptual
+level. 
 
-If you do get significant help from some other participant, it is
-natural to acknowledge this in your documentation file.
+If you do get significant help from some other participant, it is natural to
+acknowledge this in your documentation file.
 
 Don't be a cheater.
 
@@ -142,20 +138,19 @@ The language Javalette
 Javalette is a simple imperative language. It is almost a subset of C
 (see below). It can also be easily translated to Java (see below).
 
-Javalette is not a realistic language for production use. However, it is big enough to allow for a
-core compiler project that illustrates all phases in compilation. It also
-forms a basis for extensions in several directions.
+Javalette is not a realistic language for production use. However, it is big
+enough to allow for a core compiler project that illustrates all phases in
+compilation. It also forms a basis for extensions in several directions.
 
-The basic language has no heap-allocated data. However, the extensions
-involve (Java-like) arrays, structures and objects, all of which are
-allocated on the heap. The extended language is designed to be
-garbage-collected, but you will not implement garbage collection as
-part of your project. 
+The basic language has no heap-allocated data. However, the extensions involve
+(Java-like) arrays, structures and objects, all of which are allocated on the
+heap. The extended language is designed to be garbage-collected, but you will
+not implement garbage collection as part of your project. 
 
-The description in this document is intentionally a bit vague and based
-on examples; it is part of your task to define the language precisely.
-However, the language is also partly defined by a collection of test programs
-(see below), on which the behaviour of your compiler is specified.
+The description in this document is intentionally a bit vague and based on
+examples; it is part of your task to define the language precisely.  However,
+the language is also partly defined by a collection of test programs (see
+below), on which the behaviour of your compiler is specified.
 
 
 <a name="example_programs"></a>
@@ -163,10 +158,8 @@ However, the language is also partly defined by a collection of test programs
 Some small Javalette programs
 -----------------------------
 
-\label{sec:javaletteprograms}
-
-Let's start with a couple of small programs. First, here is how to say
-hello to the world:
+Let's start with a couple of small programs. First, here is how to say hello to
+the world:
 
 ```java
 // Hello world program
@@ -229,39 +222,33 @@ Program structure
 
 A Javalette program is a sequence of *function definitions*.
 
-A function definition has a 
-*return type*, a 
-*name*, a
-*parameter list*, and a
+A function definition has a *return type*, a *name*, a *parameter list*, and a
 *body* consisting of a *block*.
 
-The names of the functions defined in a program must be different
-(i.e, there is no overloading). 
+The names of the functions defined in a program must be different (i.e, there is
+no overloading). 
 
-One function must have the name `main`. Its return type must be
-`int` and its parameter list empty. Execution of a program 
-consists of executing `main.
+One function must have the name `main`. Its return type must be `int` and its
+parameter list empty. Execution of a program consists of executing `main`.
 
-A function whose return type is not `void` *must* return a value 
-of its return type. The compiler must check that it is not possible 
-that execution of the function terminates without passing a
-`return` statement. This check may be conservative, i.e. reject
-as incorrect certain functions that actually would always return a value.
-A typical case could be to reject a function ending with an 
-`if`-statement where only one branch returns,
-without considering the possibility that the test expression might always evaluate
-to the same value, avoiding the branch without return. However, your
-check must correctly decide the control flow when the test expression
-is the literal `true` or the literal `false`.
-A function, whose return type is `void`, may, on the other hand, omit the `return` statement
-completely.
+A function whose return type is not `void` *must* return a value of its return
+type. The compiler must check that it is not possible that execution of the
+function terminates without passing a `return` statement. This check may be
+conservative, i.e. reject as incorrect certain functions that actually would
+always return a value.  A typical case could be to reject a function ending with
+an `if`-statement where only one branch returns, without considering the
+possibility that the test expression might always evaluate to the same value,
+avoiding the branch without `return`. However, your check must correctly decide
+the control flow when the test expression is the literal `true` or the literal
+`false`.  A function, whose return type is `void`, may, on the other hand, omit
+the `return` statement completely.
 
-Functions can be *mutually recursive*, i.e. call each other. There
-is no prescribed order between function definitions (i.e., a call to a function 
-may appear in the program before the function definition).
+Functions can be *mutually recursive*, i.e., call each other. There is no
+prescribed order between function definitions (i.e., a call to a function may
+appear in the program before the function definition).
 
- There are no modules or other
-separate compilation facilities; we consider only one-file programs.
+There are no modules or other separate compilation facilities; we consider only
+one-file programs.
 
 
 <a name="types"></a>
@@ -269,18 +256,16 @@ separate compilation facilities; we consider only one-file programs.
 Types
 -----
 
-Basic Javalette types are `int`, `double`,
-`boolean` and `void`.
-Values of types `int`, `double` and `boolean` are
-denoted by literals (see below). `void` has no
-values and no literals.
+Basic Javalette types are `int`, `double`, `boolean` and `void`.  Values of
+types `int`, `double` and `boolean` are denoted by literals (see below). `void`
+has no values and no literals.
 
-No coercions (casts) are performed between types. Note this: it is NOT considered
-an improvement to your compiler to add implicit casts. In fact, some of the test programs
-check that you do not allow casts.
+No coercions (casts) are performed between types. Note this: it is NOT
+considered an improvement to your compiler to add implicit casts. In fact, some
+of the test programs check that you do not allow casts.
 
-In the type checker, it is useful to have a notion of a *function type*,
-which is a pair consisting of the value type and the list of parameter types.
+In the type checker, it is useful to have a notion of a *function type*, which
+is a pair consisting of the value type and the list of parameter types.
 
 
 <a name="statements"></a>
@@ -288,12 +273,11 @@ which is a pair consisting of the value type and the list of parameter types.
 Statements
 ----------
 
-The following are the forms of statements in Javalette; we indicate
-syntax using BNFC notation, where we use `Ident`,
-`Exp` and `Stmt` to indicate a variable, expression and
-statement, respectively. Terminals are given within quotes. For
-simplicity, we sometimes deviate here from the actual provided 
-grammar file.
+The following are the forms of statements in Javalette; we indicate syntax using
+BNFC notation, where we use `Ident`, `Exp` and `Stmt` to indicate a variable,
+expression and statement, respectively. Terminals are given within quotes. For
+simplicity, we sometimes deviate here from the actual provided [grammar
+file](/files/javalette.cf).
 
 * *Empty statement*: `";"`
 * *Variable declarations*: `Type Ident ";"`
@@ -320,20 +304,18 @@ grammar file.
     
     Comment: A function body is a statement of this form.
 
-Declarations may appear anywhere within a block, 
-but a variable must be declared before
-it is used. 
+Declarations may appear anywhere within a block, but a variable must be declared
+before it is used. 
 
-A variable declared in an outer scope may be redeclared in a block; 
-the new declaration then shadows the previous declaration
-for the rest of the block.
+A variable declared in an outer scope may be redeclared in a block; the new
+declaration then shadows the previous declaration for the rest of the block.
 
 A variable can only be declared once in a block.
 
-If no initial value is given in a variable declaration, the value of the variable is
-initialized to `0` for type `int`, `0.0` for type `double`
-and `false` for type `boolean`.  Note that this is
-different from Java, where local variables must be explicitly initialized.
+If no initial value is given in a variable declaration, the value of the
+variable is initialized to `0` for type `int`, `0.0` for type `double` and
+`false` for type `boolean`.  Note that this is different from Java, where local
+variables must be explicitly initialized.
 
 
 <a name="expressions"></a>
@@ -382,9 +364,9 @@ sequence of letters, digits, and underscores.
 * *Reserved words*: These include `while`,
   `if`, `else` and `return`. 
 
-Comments in Javalette are enclosed between `/\*` and `\*/` or
-extend from `//` to the end of line,
-or from `#` to the end of line (to treat C preprocessor directives as comments).
+Comments in Javalette are enclosed between `/\*` and `\*/` or extend from `//`
+to the end of line, or from `#` to the end of line (to treat C preprocessor
+directives as comments).
 
 
 <a name="primitive_functions"></a>
@@ -396,20 +378,21 @@ For input and output, Javalette programs may use the following functions:
 
 ```java
 void printInt (int n)
-void printDouble(double x)
-void printString(String s)
-int readInt()
-double readDouble()
+void printDouble (double x)
+void printString (String s)
+int readInt ()
+double readDouble ()
 ```
 
-Note that there is no type of strings in Javalette, so the only argument that can be
-given to `printString` is a string literal.
+Note that there are no variables of type string in Javalette, so the only
+argument that can be given to `printString` is a string literal.
 
-The print functions print their arguments terminated by newline and the read functions will only
-read one number per line. This is obviously rudimentary, but enough for our purposes.
+The print functions print their arguments terminated by newline and the read
+functions will only read one number per line. This is obviously rudimentary, but
+enough for our purposes.
 
-These functions are not directly implemented in the virtual machines we use. We will 
-provide them using other means, as detailed below.
+These functions are not directly implemented in the virtual machines we use. We
+will provide them using other means, as detailed [below](#code_generation).
 
 
 <a name="parameter_passing"></a>
@@ -417,10 +400,10 @@ provide them using other means, as detailed below.
 Parameter passing
 -----------------
 
-All parameters are passed by value, i.e. the value of the actual
-parameter is computed and copied into the formal parameter
-before the subroutine is executed. Parameters act as local
-variables within the subroutine, i.e. they can be assigned to.
+All parameters are passed by value, i.e., the value of the actual parameter is
+computed and copied into the formal parameter before the subroutine is executed.
+Parameters act as local variables within the subroutine, i.e., they can be
+assigned to.
 
 
 <a name="javalette_c_and_java"></a>
@@ -440,22 +423,24 @@ suitable preprocessor directives and macro definitions, e.g.
 #define true 1
 ```
 
-In addition, function definitions must be reordered so that definition precedes use, 
-mutual recursion must be resolved by extra type signatures and variable declarations moved to the beginnings of blocks.
+In addition, function definitions must be reordered so that definition precedes
+use, mutual recursion must be resolved by extra type signatures and variable
+declarations moved to the beginnings of blocks.
 
-Javalette programs can be compiled by a Java compiler (`javac`) by
-wrapping all functions in a class as `public static` methods and adding one
-more `main` method that calls your `main`:
+Javalette programs can be compiled by a Java compiler (`javac`) by wrapping all
+functions in a class as `public static` methods and adding one more `main`
+method that calls your `main`:
 
 ```java
-public static void main (String [] args) {
+public static void main (String[] args) {
   main();
 }
 ```
 
-Using a C compiler or Java compiler is a good way to understand what a program means even before
-you have written the full compiler. It can be useful to test the programs produced by your
-compiler with the result of the C- and/or Java compiler.
+Using a C compiler or Java compiler is a good way to understand what a program
+means even before you have written the full compiler. It can be useful to test
+the programs produced by your compiler with the result of the C- and/or Java
+compiler.
 
 
 <a name="frontend"></a>
@@ -463,43 +448,47 @@ compiler with the result of the C- and/or Java compiler.
 The front end
 =============
 
-Your first task is to implement a compiler front end for Javalette, i.e.
+Your first task is to implement a compiler front end for Javalette:
 
-1. Define suitable data types/classes for representing Javalette abstract syntax.
+1. Define suitable data types/classes for representing Javalette abstract
+   syntax.
 2. Implement a lexer and parser that builds abstract syntax from strings.
 3. Implement a type checker that checks that programs are type-correct.
-4. Implement a main program that calls lexer, parser and type checker, and reports errors.
+4. Implement a main program that calls lexer, parser and type checker, and
+   reports errors.
 
-These tasks are very well understood; there is a well-developed theory and, for steps 1 and 2, 
-convenient tools exist that do most of the work. You should be familiar with these theories and tools
-and we expect you to complete the front end during the first week of the course.
+These tasks are very well understood; there is a well-developed theory and, for
+steps 1 and 2, convenient tools exist that do most of the work. You should be
+familiar with these theories and tools and we expect you to complete the front
+end during the first week of the course.
 
-We recommend that you use the BNF converter and either Alex and Happy
-(if you decide to implement your compiler in Haskell) or JLex and Cup
-(if you use Java). We may also allow other implementation languages
-and tools, but we can not guarantee support, and you must discuss your
-choice with \$teacher\$ before you start. This is to make sure that we will
-be able to run your compiler and that you will not use inferior tools.
+We recommend that you use the BNF converter and either Alex and Happy (if you
+decide to implement your compiler in Haskell) or JLex and Cup (if you use Java).
+We may also allow other implementation languages and tools, but we can not
+guarantee support, and you must discuss your choice with \$teacher\$ before you
+start. This is to make sure that we will be able to run your compiler and that
+you will not use inferior tools.
 
-We provide a BNFC source file `Javalette.cf` that you may use. If you
-already have a BNFC file for a similar language that you want to
-reuse you may do so, but you must make sure that you modify it to
-pass the test suite for this course.
+We provide a BNFC source file [`Javalette.cf`](/files/javalette.cf) that you may
+use. If you already have a BNFC file for a similar language that you want to
+reuse you may do so, but you must make sure that you modify it to pass the test
+suite for this course.
 
-We will accept a small number of shift/reduce conflicts in your
-parser; your documentation must describe these and argue that they are
-harmless. Reduce/reduce conflicts are not allowed. The provided BNFC
-file has the standard dangling-else shift/reduce conflict.
+We will accept a small number of shift/reduce conflicts in your parser; your
+documentation must describe these and argue that they are harmless.
+Reduce/reduce conflicts are not allowed. The provided BNFC file has the standard
+dangling-else shift/reduce conflict.
 
-One thing to note is that it may be useful to implement the type-checker as a function,
-which traverses the syntax *and returns its input* if the program is type-correct. 
-The reason for this is that you may actually want to modify this and 
-decorate the syntax trees with more information 
-during type-checking for later use by the code generator. One example of such decoration can be to annotate all subexpressions
-with type information; this will be useful during code generation.
+One thing to note is that it may be useful to implement the type-checker as a
+function, which traverses the syntax *and returns its input* if the program is
+type-correct.  The reason for this is that you may actually want to modify this
+and decorate the syntax trees with more information during type-checking for
+later use by the code generator. One example of such decoration can be to
+annotate all subexpressions with type information; this will be useful during
+code generation.
 
-To do this, you can add one further form of expression to your BNFC source, namely a 
-type-annotated expression. 
+To do this, you can add one further form of expression to your BNFC source,
+namely a type-annotated expression. 
 
 
 <a name="extensions"></a>
@@ -507,9 +496,9 @@ type-annotated expression.
 Extensions
 ==========
 
-This section describes optional extensions that you may implement to learn
-more, get credits and thus a higher final grade.
-You may choose different combinations of the extensions.
+This section describes optional extensions that you may implement to learn more,
+get credits and thus a higher final grade. You may choose different combinations
+of the extensions.
 
 In this section we specify the requirements on the extensions. Some
 implementation hints are given in section [extension hints](#extension_hints)
@@ -521,17 +510,14 @@ and in the lecture notes.
 One-dimensional arrays and for loops
 ------------------------------------
 
-\label{sec:firstext}
-
-The basic Javalette language has no heap-allocated data, so memory
-management consists only of managing the run-time stack. In this extension you will add one-dimensional arrays to
-basic Javalette. To get the credit, you must implement this in the
-front end and in the respective back end.
+The basic Javalette language has no heap-allocated data, so memory management
+consists only of managing the run-time stack. In this extension you will add
+one-dimensional arrays to basic Javalette. To get the credit, you must implement
+this in the front end and in the respective back end.
  
-Arrays are Java-like, i.e. variables of array type
-contain a reference to the actual array, which is allocated on the
-heap. Arrays are explicitly created using a `new` construct 
-and variables of array type have an attribute, `length`, which
+Arrays are Java-like: variables of array type contain a reference to the actual
+array, which is allocated on the heap. Arrays are explicitly created using a
+`new` construct and variables of array type have an attribute, `length`, which
 is accessed using dot notation.
 
 Some examples of array declarations in the extension are
@@ -548,8 +534,8 @@ a = new int[20];
 int[] c = new int[30];
 ```
 
-After the above code, `a.length` evaluates to 20 and `a`
-refers to an array of 20 integer values, indexed from 0 to 19 (indexing always starts at 0).
+After the above code, `a.length` evaluates to 20 and `a` refers to an array of
+20 integer values, indexed from 0 to 19 (indexing always starts at 0).
 
 Functions may have arrays as arguments and return arrays as results:
 
@@ -565,15 +551,14 @@ int[] sum (int[] a, int[] b) {
 }
 ```
 
-Array parameters are passed by value, i.e. the reference is copied
-into the parameter.
+Array parameters are passed by value, that is the reference is copied into the
+parameter.
 
-One new form of expressions is added, namely indexing, as shown in the
-example. Indexed expressions may also occur as L-values, i.e. as left
-hand sides of assignment statements. 
-An array can be filled with values by assigning each individual element, as in
-function `sum`. But one can also assign references as in C or
-Java:
+One new form of expressions is added, namely indexing, as shown in the example.
+Indexed expressions may also occur as L-values, i.e., as left hand sides of
+assignment statements. An array can be filled with values by assigning each
+individual element, as in function `sum`. But one can also assign references as
+in C or Java:
 
 ```java
 c = a;
@@ -581,27 +566,23 @@ c = a;
 
 \medskip
 
-The extension also includes implementation of a simple form of
-`foreach`-loop to iterate over arrays. If *expr* is an
-expression of type  $t$`[]`, the following is a new
-form of statement:
+The extension also includes implementation of a simple form of `foreach`-loop to
+iterate over arrays. If `expr` is an expression of type  `t[]`, the following
+is a new form of statement:
 
 ```
-for ( t var : expr) stmt
+for (t var : expr) stmt
 ```
 
-The variable *var* of type $t$ assumes the values *expr*[0], *expr*[1]
-and so on and the *stmt* is executed for each value. The scope of
-*var* is just *stmt*.
+The variable `var` of type `t` assumes the values `expr[0]`, `expr[1]` and so on
+and the `stmt` is executed for each value. The scope of `var` is just `stmt`.
 
 This form of loop is very convenient when you want to iterate over an array and
-access the elements, but it is not useful when you need to assign values
-to the elements. For this, we still have to rely on the `while`
-loop. The traditional `for` loop would be attractive here, but
-we cannot implement everything.
+access the elements, but it is not useful when you need to assign values to the
+elements. For this, we still have to rely on the `while` loop. The traditional
+`for`-loop would be attractive here, but we cannot implement everything.
 
-Test files for this extension are in subdirectory
-`extensions/arrays1`.
+Test files for this extension are in subdirectory `extensions/arrays1`.
 
 
 <a name="arrays2"></a>
@@ -609,10 +590,10 @@ Test files for this extension are in subdirectory
 Multidimensional arrays
 -----------------------
 
-In this extension you add arrays with an arbitrary number of indices. 
-Just as in Java, an array of type `int[][]` is a one-dimensional
-array, each of whose elements is a one-dimensional array of integers. 
-Declaration, creation and indexing is as expected:
+In this extension you add arrays with an arbitrary number of indices.  Just as
+in Java, an array of type `int[][]` is a one-dimensional array, each of whose
+elements is a one-dimensional array of integers.  Declaration, creation and
+indexing is as expected:
 
 ```java
 int[][] matrix = new int[10][20];
@@ -621,10 +602,10 @@ int[][][] pixels;
 matrix[i][j] =  2 * matrix[i][j];
 ```
 
-You must specify the number of elements in each dimension when creating
-an array. For a two-dimensional rectangular array such as `matrix`, the number of
-elements in the two dimensions are `matrix.length` and
-`matrix[0].length`, respectively.
+You must specify the number of elements in each dimension when creating an
+array. For a two-dimensional rectangular array such as `matrix`, the number of
+elements in the two dimensions are `matrix.length` and `matrix[0].length`,
+respectively.
 
 
 <a name="pointers"></a>
@@ -632,9 +613,9 @@ elements in the two dimensions are `matrix.length` and
 Dynamic data structures
 -----------------------
 
-In this extension you will implement a simple form of dynamic data
-structures, which is enough to implement lists and trees. 
-The source language extensions are the following:
+In this extension you will implement a simple form of dynamic data structures,
+which is enough to implement lists and trees.  The source language extensions
+are the following:
 
 * Two new forms of top-level definitions are added (in the basic
     language there are only function definitions): 
@@ -649,13 +630,11 @@ The source language extensions are the following:
         ```c
         typedef struct Node *list; 
         ```
-        Note that this second form is intended to be
-        very restricted. We can only use it to introduce new types that represent
-        pointers to structures. Thus
-        this form of definition is completely fixed except for the names
-        of the structure and the new type. Note also that, following the
-        spirit of Javalette, the order of
-        definitions is arbitrary.
+        Note that this second form is intended to be very restricted. We can
+        only use it to introduce new types that represent pointers to
+        structures. Thus this form of definition is completely fixed except for
+        the names of the structure and the new type. Note also that, following
+        the spirit of Javalette, the order of definitions is arbitrary.
 * Three new forms of expression are introduced:
     1. *Heap object creation*, examplified by `new Node`,
         where `new` is a new reserved word.  A new block of heap
@@ -685,8 +664,8 @@ struct Node {
 };
 
 
-int main() {
-  printInt(length(fromTo(1,100)));
+int main () {
+  printInt (length (fromTo (1, 100)));
   return 0;
 }
 
@@ -702,7 +681,7 @@ list fromTo (int m, int n) {
   if (m>n)
     return (list)null;
   else 
-    return cons (m,fromTo (m+1,n));
+    return cons (m, fromTo (m + 1, n));
 }
 
 int length (list xs) {
@@ -715,8 +694,8 @@ int length (list xs) {
 }
 ```
 
-This and a few other test programs can be found in the `extensions/pointers` subdirectory
-of the test suite. 
+This and a few other test programs can be found in the `extensions/pointers`
+subdirectory of the test suite. 
 
 
 <a name="oop1"></a>
@@ -724,10 +703,9 @@ of the test suite.
 Object-orientation
 ------------------
 
-This extension adds classes and objects to basic Javalette. From a
-language design point of view, it is not clear that you would want 
-both this and the previous extension in the same language, but here 
-we disregard this.
+This extension adds classes and objects to basic Javalette. From a language
+design point of view, it is not clear that you would want both this and the
+previous extension in the same language, but here we disregard this.
 
 Here is a first simple program in the proposed extension:
 
@@ -735,45 +713,49 @@ Here is a first simple program in the proposed extension:
 class Counter {
   int val;
 
-  void incr () {val++; return;}
-  int value () {return val;}
+  void incr () {
+    val++; 
+    return;
+  }
 
+  int value () {
+    return val;
+  }
 }
 
 int main () {
   Counter c;
   c = new Counter;
-  c.incr();
-  c.incr();
-  c.incr();
-  int x = c.value();
-  printInt(x);
+  c.incr ();
+  c.incr ();
+  c.incr ();
+  int x = c.value ();
+  printInt (x);
   return 0;
 }
 ```
 
-We define a class `Counter`, and in `main` create an object
-and call its methods a couple of times. The program writes 3 to `stdout`.
+We define a class `Counter`, and in `main` create an object and call its methods
+a couple of times. The program writes 3 to `stdout`.
 
 The source language extensions, from basic Javalette, are
 
 * A new form of top-level definition: a *class declaration*.
     A class has a number of instance variables and a number of methods. 
    
-    Instance variables are private, i.e. are *only* visible within the methods
-    of the class. We could not have written `c.val` in `main`. 
+    Instance variables are private and are *only* visible within the methods of
+    the class. We could not have written `c.val` in `main`. 
     
-    All methods are public; there is no way to define private methods.
-    It would not be difficult in principle to allow this, but we must limit
-    the task.
+    All methods are public; there is no way to define private methods.  It would
+    not be difficult in principle to allow this, but we must limit the task.
     
     There is always only one implicit constructor method in a class, with no
-    arguments. 
-    Instance variables are, as all variables in Javalette, initialized to
-    default values: numbers to 0, booleans to false and object references
-    to null.
+    arguments.  Instance variables are, as all variables in Javalette,
+    initialized to default values: numbers to 0, booleans to false and object
+    references to null.
     
-    We support a simple form of single inheritance: a class may extend another one:
+    We support a simple form of single inheritance: a class may extend another
+    one:
     
     ```java
     class Point2 {
@@ -806,15 +788,15 @@ The source language extensions, from basic Javalette, are
     
       Point3 q = new Point3;
     
-      q.move(2,4);
-      q.moveZ(7);
+      q.move (2,4);
+      q.moveZ (7);
       p = q;
     
-      p.move(3,5);
+      p.move (3,5);
      
-      printInt(p.getX());  
-      printInt(p.getY());  
-      printInt(q.getZ());  
+      printInt (p.getX());  
+      printInt (p.getY());  
+      printInt (q.getZ());  
     
       return 0;
     }
@@ -822,12 +804,12 @@ The source language extensions, from basic Javalette, are
     
     Here `Point3` is a subclass of `Point2`. The program above prints 5, 9 and 7.
     
-    Classes are types; we can declare variables to be (references to)
-    objects of a certain class. Note that we have subtyping:
-    we can do the assignment `p = q;`. The reverse assignment, `q = p;`
-    would be a type error. We have a strong  restriction, though: we will *not*
-    allow overriding of methods. Thus there is no need for dynamic dispatch;
-    all method calls can be statically determined.
+    Classes are types; we can declare variables to be (references to) objects of
+    a certain class. Note that we have subtyping: we can do the assignment `p =
+    q;`. The reverse assignment, `q = p;` would be a type error. We have a
+    strong  restriction, though: we will *not* allow overriding of methods. Thus
+    there is no need for dynamic dispatch; all method calls can be statically
+    determined.
 * There are four new forms of expression:
     
     1. `"new" Ident` creates a new object, with fields initialized as described
@@ -849,16 +831,15 @@ Object orientation with dynamic dispatch
 ----------------------------------------
 
 The restriction not to allow method override is of course severe. In this
-extension the restriction is removed and subclassing with inheritance
-and method override implemented. This requires a major change of
-implementation as compared to the previous extension. It is no longer 
-possible to decide statically which code to run when a message is sent 
-to an object. Thus each object at runtime must have a link to a class
-descriptor, a struct with pointers to the code of the methods of the class.
-These class descriptor are linked together in a list, where a class
-descriptor has a link to the descriptor of its superclass. This list is
-searched at runtime for the proper method to execute. All this is discussed
-more during the lectures.
+extension the restriction is removed and subclassing with inheritance and method
+override implemented. This requires a major change of implementation as compared
+to the previous extension. It is no longer possible to decide statically which
+code to run when a message is sent to an object. Thus, each object at runtime
+must have a link to a class descriptor, a struct with pointers to the code of
+the methods of the class. These class descriptor are linked together in a list,
+where a class descriptor has a link to the descriptor of its superclass. This
+list is searched at runtime for the proper method to execute. All this is
+discussed more during the lectures.
 
 
 <a name="x86"></a>
@@ -867,16 +848,16 @@ Native x86 code generation.
 ---------------------------
 
 This extension is to produce native assembler code for a real machine,
-preferrably x86. We may accept code generators
-for other architectures, but *you* need to think of how we can test your extension. 
-Before you attempt to write a backend for another architecture,
-discuss your choice with \$teacher\$ and explain the testing procedure.
+preferrably x86. We may accept code generators for other architectures, but
+*you* need to think of how we can test your extension. Before you attempt to
+write a backend for another architecture, discuss your choice with \$teacher\$
+and explain the testing procedure.
 
 Note that this extension gives you *two* credits, but it is not enough to just
 implement a naïve code generator. You must also implement some sort of
-optimization, such as register allocation or peephole optimization.
-Talk to \$teacher\$ about which optimization(s) to implement before attempting
-the x86 code generator.
+optimization, such as register allocation or peephole optimization. Talk to
+\$teacher\$ about which optimization(s) to implement before attempting the x86
+code generator.
 
 
 <a name="optstudy"></a>
@@ -884,34 +865,28 @@ the x86 code generator.
 Study of LLVM optimization
 --------------------------
 
-\label{sec:lastext}
+We offer one possibility to get a credit that does not involve implementing a
+Javalette extension. This is to do a more thorough study of the LLVM framework
+and write a report of 4-5 pages. More precisely the task is as follows.
 
-We offer one possibility to get a credit that does not involve
-implementing a Javalette extension. This is to do a more thorough
-study of the LLVM framework and write a report of 4-5 pages. More
-precisely the task is as follows:
-
-Look at the list of available
-optimization passes and choose at least three of these for further
-study. Mail \$teacher\$ to agree that your choice is suitable (do this
-*before* you start to work on the extension!).
+Look at the list of available optimization passes and choose at least three of
+these for further study. Mail \$teacher\$ to agree that your choice is suitable
+(do this *before* you start to work on the extension!).
 
 For each pass you must:
 
-* Describe the optimization briefly; what kind of analysis is
-    involved, how is code transformed?
-* Find a Javalette program that is suitable to illustrate the
-    optimization. List the program, the LLVM code generated by your
-    compiler and the LLVM code that results by using `opt` to apply
-    this pass (and only this pass). In addition to the code listing,
-    explain how the general description in the previous item will actually
-    give the indicated result. Part of the task is to find a program
-    where the pass has an interesting effect.
+* Describe the optimization briefly; what kind of analysis is involved, how is
+  code transformed?
+* Find a Javalette program that is suitable to illustrate the optimization. List
+  the program, the LLVM code generated by your compiler and the LLVM code that
+  results by using `opt` to apply this pass (and only this pass). In addition to
+  the code listing, explain how the general description in the previous item
+  will actually give the indicated result. Part of the task is to find a program
+  where the pass has an interesting effect.
 
-We emphasize again that if you are only looking to pass the course and
-only get one credit then this project is not enough. You have to
-implement at least one extension to Javalette in order to pass the
-course.
+We emphasize again that if you are only looking to pass the course and only get
+one credit then this project is not enough. You have to implement at least one
+extension to Javalette in order to pass the course.
 
 
 <a name="moreextensions"></a>
@@ -919,21 +894,21 @@ course.
 Further possibilities
 ---------------------
 
-We are willing to give credits also to other extensions, which are not
-as well defined. If you want to do one of these and get credit, you
-must discuss it with \$teacher\$ in advance. Here are some possibilities:
+We are willing to give credits also to other extensions, which are not as well
+defined. If you want to do one of these and get credit, you must discuss it with
+\$teacher\$ in advance. Here are some possibilities:
 
 * Allow functions to be statically nested.
 * Implement higher order functions, using either closures or
-    defunctionalization.
-* A simple module system. Details on module systems will be
-    provided in the lectures.
+  defunctionalization.
+* A simple module system. Details on module systems will be provided in the
+  lectures.
 * Implement exceptions, which can be thrown and caught.
 * Implement some form of garbage collection.
-* Provide a predefined type of lists with list comprehensions,
-    similar to what is available in Python.
-* Implement a backend for another architecture, such as ARM. It is
-    important that you provide some way for the grader to test programs.
+* Provide a predefined type of lists with list comprehensions, similar to what
+  is available in Python.
+* Implement a backend for another architecture, such as ARM. It is important
+  that you provide some way for the grader to test programs.
 
 
 <a name="testing"></a>
@@ -941,66 +916,59 @@ must discuss it with \$teacher\$ in advance. Here are some possibilities:
 Testing the project
 ===================
 
-Needless to say, you should test your project extensively. 
-We provide a testsuite of programs and will run your compiler
-on these. You may download the testsuite from the course
-web site. The testsuite contains both correct programs
-(in subdirectory `testsuite/good`) and illegal programs 
-(in subdirectory `testsuite/bad`). For the good programs the correct
-output is provided in files with suffix `.output`. The bad programs contain examples of both lexical,
-syntactical and type errors.
+Needless to say, you should test your project extensively. We provide a
+[testsuite](/resources#testsuite) of programs and will run your compiler on
+these. You may download the testsuite from the course web site. The testsuite
+contains both correct programs (in subdirectory `testsuite/good`) and illegal
+programs (in subdirectory `testsuite/bad`). For the good programs the correct
+output is provided in files with suffix `.output`. The bad programs contain
+examples of both lexical, syntactical and type errors.
 
-Already after having produced the parser you should therefore write
-a main program and try to parse all the test programs. The same
-holds for the type checker and so on. When you only have the parser,
-you will of course pass some bad programs; those that are
-syntactically correct but have type errors.
+Already after having produced the parser you should therefore write a main
+program and try to parse all the test programs. The same holds for the type
+checker and so on. When you only have the parser, you will of course pass some
+bad programs; those that are syntactically correct but have type errors.
 
 Summarizing, your compiler must:
 
-* accept and be able to compile all of the files `testsuite/good/*.jl`.
-    For these files,  the compiler must print a line containing only
-    `OK` to  standard error, optionally followed by arbitrary output,
-    such as a syntax tree or other messages. The compiler must then
-    exit with  the exit code 0.
-* reject all of the files in `testsuite/bad/*.jl`. For these files,
-    the compiler must print  `ERROR` as the first line to
-    standard error and then give an informative error message.
-    The compiler must then exit with an exit code other than 0.
+* accept and be able to compile all of the files `testsuite/good/*.jl`. For
+  these files, the compiler must print a line containing only `OK` to  standard
+  error, optionally followed by arbitrary output, such as a syntax tree or other
+  messages. The compiler must then exit with  the exit code 0.
+* reject all of the files in `testsuite/bad/*.jl`. For these files, the compiler
+  must print  `ERROR` as the first line to standard error and then give an
+  informative error message. The compiler must then exit with an exit code
+  other than 0.
 
-Furthermore, for correct programs, your compiled programs, must 
-run and give correct output. 
+Furthermore, for correct programs, your compiled programs, must run and give
+correct output. 
 
 
 Automated testing
 -----------------
 
-We also provide a program that automatically compiles and runs
-all the test programs. Before submission you \textbf{must} run that program to
-verify that your compiler behaves correctly. Our first action when we
-receive your submission is to run these tests. If this run fails, we
-will reject your submission without further checks, so you must make
-sure that this step works. Unfortunately,
-we cannot supply a working test driver for the Windows platform. If
-you have a Windows machine, you may do most of the development, including
-manual testing, on that
-machine, but for final testing you should transfer your project to
-our lab machines and run the test driver.
+We provide a program that automatically compiles and runs all the test programs.
+Before submission you **must** run that program to verify that your compiler
+behaves correctly. Our first action when we receive your submission is to run
+these tests. If this run fails, we will reject your submission without further
+checks, so you must make sure that this step works.  Unfortunately, we cannot
+supply a working test driver for the Windows platform.  If you have a Windows
+machine, you may do most of the development, including manual testing, on that
+machine, but for final testing you should transfer your project to our lab
+machines and run the test driver.
 
-The test driver runs each good program and compares its output with 
-the corresponding  `.output` file. If the program needs input, 
-this is taken from the `.input` file. Note that the test driver
-handles this; your generated code should read from `stdin`
-and write to `stdout`.
+The test driver runs each good program and compares its output with the
+corresponding  `.output` file. If the program needs input, this is taken from
+the `.input` file. Note that the test driver handles this; your generated code
+should read from `stdin` and write to `stdout`.
 
-The tests are of course not exhaustive. It is quite possible that the grader will discover
-bugs in your code even if it passes all tests. 
+The tests are of course not exhaustive. It is quite possible that the grader
+will discover bugs in your code even if it passes all tests. 
 
-[The tester](/resources#testsuite) is provided as a gzipped tar ball, which
-can be downloaded from the course web site. You can use it to run the tests
-for your project. This archive contains a test driver `Grade.hs` with
-supporting files, and a subdirectory `testsuite` containing Javalette
-test programs. 
+[The tester](/resources#testsuite) is provided as a gzipped tar ball, which can
+be downloaded from the course web site. You can use it to run the tests for your
+project. This archive contains a test driver `Grade.hs` with supporting files,
+and a subdirectory `testsuite` containing Javalette test programs. 
 
 
 ### Installation
