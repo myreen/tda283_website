@@ -34,17 +34,19 @@ Project
 -------
 
 The main part of the course is a project, where you implement a complete
-compiler for a simple imperative language called Javalette. The project is
-done in groups of one or two students; we recommend that you work in pairs.
+compiler for a simple imperative language called
+[Javalette](/project#javalette). The project is done in groups of one or two
+students; we recommend that you work in pairs.
 
 The project is described in the [project instruction](/project).
 The project is divided into three parts with separate submission dates:
 
 1. **Frontend**. The front end does lexing, parsing and type checking and builds
-    a suitable intermediate representation. Your compiler must accept all
-    programs in the good directory and reject all programs in the bad directory.
-    Your submission must be prepared according to appendix A in the project
-    description and pass the automatic tester.
+   a suitable intermediate representation. Your compiler must accept all
+   programs in the `good` directory and reject all programs in the `bad`
+   directory, provided by the [testsuite](/project#testing). Your submission
+   must be prepared according to ['submission'](/project#submission_format) section in
+   the project description and pass the automatic tester.
     
     Front end issues are part of the syllabus for the prerequisite course
     Programming language technology. These things are not taught in this course.
@@ -52,16 +54,16 @@ The project is divided into three parts with separate submission dates:
     for Javalette using previous knowledge during the first week of this course.
    
     The deadline for the first submission is *\$deadline1\$*. The deadline is
-    sharp; the submission system will not accept late submissions. Of course,
-    if you are ill or have another good reason, you may get an extended
-    deadline, but you must then explicitly ask for an extension in an email
-    to Alex, explaining the reason. This email must be sent before the deadline.
+    sharp; the submission system will not accept late submissions. Of course, if
+    you are ill or have another good reason, you may get an extended deadline,
+    but you must then explicitly ask for an extension in an email to Alex,
+    explaining the reason. This email must be sent before the deadline.
 2. **Backend for LLVM**. Again, your compiler must reject all bad programs and
-    be able to run all good programs. There are also test programs for the
-    various extensions.
-    The deadline for this second submission is *\$deadline2\$*.
-3. **Language extensions** and/or back end generating native x86 code.
-    The deadline for this submission is *\$deadline3\$*.
+   be able to run all good programs. There are also test programs for the
+   various extensions.  The deadline for this second submission is
+   *\$deadline2\$*.
+3. **Language extensions** and/or back end generating native x86 code.  The
+   deadline for this submission is *\$deadline3\$*.
 
 All parts are submitted using the [Fire](/fire) system.
 

@@ -277,7 +277,7 @@ The following are the forms of statements in Javalette; we indicate syntax using
 BNFC notation, where we use `Ident`, `Exp` and `Stmt` to indicate a variable,
 expression and statement, respectively. Terminals are given within quotes. For
 simplicity, we sometimes deviate here from the actual provided [grammar
-file](/files/javalette.cf).
+file](/files/Javalette.cf).
 
 * *Empty statement*: `";"`
 * *Variable declarations*: `Type Ident ";"`
@@ -469,7 +469,7 @@ guarantee support, and you must discuss your choice with \$teacher\$ before you
 start. This is to make sure that we will be able to run your compiler and that
 you will not use inferior tools.
 
-We provide a BNFC source file [`Javalette.cf`](/files/javalette.cf) that you may
+We provide a BNFC source file [`Javalette.cf`](/files/Javalette.cf) that you may
 use. If you already have a BNFC file for a similar language that you want to
 reuse you may do so, but you must make sure that you modify it to pass the test
 suite for this course.
@@ -918,11 +918,12 @@ Testing the project
 
 Needless to say, you should test your project extensively. We provide a
 [testsuite](/resources#testsuite) of programs and will run your compiler on
-these. You may download the testsuite from the course web site. The testsuite
-contains both correct programs (in subdirectory `testsuite/good`) and illegal
-programs (in subdirectory `testsuite/bad`). For the good programs the correct
-output is provided in files with suffix `.output`. The bad programs contain
-examples of both lexical, syntactical and type errors.
+these. You can download the testsuite from the course web site and run it
+locally or on a Chalmers machine (e.g., `remote11` or a Linux lab machine). The
+testsuite contains both correct programs (in subdirectory `testsuite/good`) and
+illegal programs (in subdirectory `testsuite/bad`). For the good programs the
+correct output is provided in files with suffix `.output`. The bad programs
+contain examples of both lexical, syntactical and type errors.
 
 Already after having produced the parser you should therefore write a main
 program and try to parse all the test programs. The same holds for the type
@@ -947,15 +948,14 @@ correct output.
 Automated testing
 -----------------
 
-We provide a program that automatically compiles and runs all the test programs.
 Before submission you **must** run that program to verify that your compiler
 behaves correctly. Our first action when we receive your submission is to run
 these tests. If this run fails, we will reject your submission without further
-checks, so you must make sure that this step works.  Unfortunately, we cannot
-supply a working test driver for the Windows platform.  If you have a Windows
+checks, so you must make sure that this step works. Unfortunately, we cannot
+supply a working test driver for the Windows platform. If you have a Windows
 machine, you may do most of the development, including manual testing, on that
-machine, but for final testing you should transfer your project to our lab
-machines and run the test driver.
+machine, but for final testing you should transfer your project to our lab (or
+remote) machines and run the test driver.
 
 The test driver runs each good program and compares its output with the
 corresponding  `.output` file. If the program needs input, this is taken from
@@ -973,21 +973,19 @@ and a subdirectory `testsuite` containing Javalette test programs.
 
 ### Installation
 
-The tester requires a Linux (or Mac OS X, or other Unix) environment
-and a recent version of the [Haskell Platform](http://haskell.org/platform).
-If you work on your own Windows machine, we cannot assist you in
-making the tester work. You should anyhow download
-the tester to get access to the testsuite in directory
-`testsuite`. Before submitting, you must upload your project to
-the lab machines and verify the submission.
+The tester requires a Linux (or Mac OS X, or other Unix) environment and a
+recent version of the [Haskell Platform](http://haskell.org/platform). If you
+work on your own Windows machine, we cannot assist you in making the tester
+work. You should anyhow download the tester to get access to the testsuite in
+directory `testsuite`. Before submitting, you must upload your project to a
+lab machines and verify the submission.
 
 
 ### Running the tests
 
-Assume that your submission directory is `dir` and that your
-compiler is called `jlc`. Assume also that `dir/lib`
-contains the runtime support file (`runtime.bc` for submission
-B, and possibly `runtime.o` for submission C).
+Assume that your submission directory is `dir` and that your compiler is called
+`jlc`. Assume also that `dir/lib` contains the runtime support file
+(`runtime.bc` for submission B, and possibly `runtime.o` for submission C).
 
 The test driver takes a number of options:
 
@@ -995,28 +993,27 @@ The test driver takes a number of options:
 |:---------------|:------------------------------------------------------------|
 | `-s <name>`    | Name of your compiler binary                                |
 | `-b <backend>` | Backend to use. One of `LLVM`, `x86`, `x86_64` and `custom` |
-| `-l <ver>`     | LLVM version to use for with LLVM backend.                  |
+| `-l <ver>`     | LLVM version to use for with LLVM backend (only \$llvmversion\$ has guaranteed support).                  |
 | `-x <ext>`     | Implemented extensions. May be given multiple times.        |
 | `-t <dir>`     | Directory in which the Javalette test programs are found.   |
 | `-k`           | Keep any temporary directories created by the tester.       |
 | `-h`           | Print detailed help and usage instructions.                 |
 
-In addition, it takes one mandatory argument: a directory or tarball
-in which to find your submission.
+In addition, it takes one mandatory argument: a directory or tarball in which to
+find your submission.
 
-Thus, if you have placed your submission directory, `dir`, in
-the directory containing `Grade.hs`, you can test your compiler
-as follows:
+Thus, if you have placed your submission directory, `dir`, in the directory
+containing `Grade.hs`, you can test your compiler as follows:
 
 ```
 runhaskell Grade.hs dir
 ```
 
-The above command will compile all the basic Javalette programs. The tester will *not* 
-attempt to run the good programs, so this is suitable for testing your
-compiler for submission A. Note that it is essential that your
-compiler writes one line to `stderr`, containing `OK` for correct programs 
-and `ERROR` for incorrect programs.
+The above command will compile all the basic Javalette programs. The tester will
+*not* attempt to run the good programs, so this is suitable for testing your
+compiler for submission A. Note that it is essential that your compiler writes
+one line to `stderr`, containing `OK` for correct programs and `ERROR` for
+incorrect programs.
 
 To also *run* the good programs and test them for submission B:
 
@@ -1024,9 +1021,8 @@ To also *run* the good programs and test them for submission B:
 runhaskell Grade.hs -b LLVM dir
 ```
 
-The test driver will report its activities in compiling the test
-programs and running the good ones. If your compiler is correct, 
-output will end as follows:
+The test driver will report its activities in compiling the test programs and
+running the good ones. If your compiler is correct, output will end as follows:
 
 ```
 Summary:
@@ -1036,8 +1032,9 @@ Summary:
 Credits total: 0
 ```
 
-All 101 test programs were compiled and gave correct indication OK or
-ERROR to stderr. The 35 correct programs were run and gave correct output.
+All 101 test programs were compiled and gave correct indication OK or ERROR to
+stderr. The 35 correct programs were run and gave correct output. Note that the
+actual numbers can be different, since we may add tests.
 
 To test the extensions for submission, run the test suite with the `-x` flag
 for each extension you have implemented. The following command will run the
@@ -1047,12 +1044,11 @@ tests for the two array extensions.
 runghc Grade.hs -b LLVM -x arrays1 -x arrays2 dir
 ```
 
-The following extensions are supported by the test suite:
-`arrays1`, `arrays2`, `pointers`, `objects1`, `objects2`.
-If you have implemented the x86 code generation extension, use `-b x86`
-(or `-b x86_64`) to run all tests using that instead of the LLVM backend.
-If your x86 compiler has a different name than `jlc`, don't forget to specify
-it using `-s <compiler>`.
+The following extensions are supported by the test suite: `arrays1`, `arrays2`,
+`pointers`, `objects1`, `objects2`. If you have implemented the x86 code
+generation extension, use `-b x86` (or `-b x86_64`) to run all tests using that
+instead of the LLVM backend. If your x86 compiler has a different name than
+`jlc`, don't forget to specify it using `-s <compiler>`.
 
 
 <a name="code_generation"></a>
@@ -1060,48 +1056,51 @@ it using `-s <compiler>`.
 Code generation: LLVM
 =====================
 
-LLVM (Low Level Virtual Machine) is both an intermediate representation language and a compiler infrastructure,
-i.e. a collection of software components for manipulating (e.g. optimizing) LLVM
-code and backends for various architectures. LLVM has a large user base and is
-actively developed. A lot of information and
-code to download can be found at the LLVM web site `http://www.llvm.org`.
+LLVM (Low Level Virtual Machine) is both an intermediate representation language
+and a compiler infrastructure, i.e. a collection of software components for
+manipulating (e.g. optimizing) LLVM code and backends for various architectures.
+LLVM has a large user base and is actively developed. A lot of information and
+code to download can be found at the LLVM web site `http://www.llvm.org`. You
+must use the \$llvmversion$\ version in this course; the
+[testsuite](/resources#testsuite) has only guaranteed support forthis particular 
+version.
 
-Also LLVM code comes in two formats, a human-readable assembler format (stored in `.ll` files)
-and a binary bitcode format (stored in`.bc` files). Your compiler will produce
-the assembler format and you will use the LLVM assembler `llvm-as` to produce binary files
-for execution.
+Also LLVM code comes in two formats, a human-readable assembler format (stored
+in `.ll` files) and a binary bitcode format (stored in`.bc` files). Your
+compiler will produce the assembler format and you will use the LLVM assembler
+`llvm-as` to produce binary files for execution.
 
-In addition to the assembler, the LLVM infrastructure consists of a large number of
-tools for optimizing, linking, JIT-compiling and manipulating bitcode. One consequence is that a 
-compiler writer may produce very simple-minded LLVM code and leave to the LLVM tools to improve
-code when needed. Of course, similar remarks apply to JVM code.
+In addition to the assembler, the LLVM infrastructure consists of a large number
+of tools for optimizing, linking, JIT-compiling and manipulating bitcode. One
+consequence is that a compiler writer may produce very simple-minded LLVM code
+and leave to the LLVM tools to improve code when needed. Of course, similar
+remarks apply to JVM code.
 
 
 LLVM code
 ---------
 
-The LLVM virtual machine is a *register machine*, with an
-infinite supply of typed, virtual registers. The LLVM intermediate
-language is a version of *three-address code* with arithmetic
-instructions that take operands from two registers and place the
-result in a third register. LLVM code must be in SSA (static single
-assignment) form,
-i.e. each virtual register may only be assigned once in the program
-text.
+The LLVM virtual machine is a *register machine*, with an infinite supply of
+typed, virtual registers. The LLVM intermediate language is a version of
+*three-address code* with arithmetic instructions that take operands from two
+registers and place the result in a third register. LLVM code must be in SSA
+(static single assignment) form, i.e. each virtual register may only be assigned
+once in the program text.
 
-The LLVM language is typed, and all instructions contain type information. 
-This "high-level" information, together with the "low-level" nature
-of the virtual machine, gives LLVM a distinctive flavour.
+The LLVM language is typed, and all instructions contain type information. This
+"high-level" information, together with the "low-level" nature of the virtual
+machine, gives LLVM a distinctive flavour.
 
-The LLVM web site provides a wealth of information, including language references, tutorials,
-tool manuals etc. There will also be lectures focusing on code generation for LLVM.
+The LLVM web site provides a wealth of information, including language
+references, tutorials, tool manuals etc. There will also be lectures focusing on
+code generation for LLVM.
 
 
 The structure of a LLVM file
 ----------------------------
 
-There is less overhead in the LLVM file. But, since the language is typed, we must inform the tools 
-of the types of the primitive functions:
+There is less overhead in the LLVM file. But, since the language is typed, we
+must inform the tools of the types of the primitive functions:
 
 ```llvm
 declare void @printInt(i32)
@@ -1111,16 +1110,16 @@ declare i32 @readInt()
 declare double @readDouble()
 ```
 
-Here `i32` is the type of 32 bit integers and `i8*` is
-the type of a pointer to an 8 bit integer (i.e., to a character). 
-Note that function names in LLVM always start with `@`.
+Here `i32` is the type of 32 bit integers and `i8*` is the type of a pointer to
+an 8 bit integer (i.e., to a character). Note that function names in LLVM always
+start with `@`.
 
-Before running a compiled Javalette program, `myfile.bc` must be linked 
-with `runtime.bc`, a file implementing the primitive functions, 
-which we will provide. In fact, this file is produced by giving `clang` a simple C file with definitions 
-such as
+Before running a compiled Javalette program, `myfile.bc` must be linked with
+`runtime.bc`, a file implementing the primitive functions, which we will
+provide. In fact, this file is produced by giving `clang` a simple C file with
+definitions such as
 
-```java
+```c
 void printInt(int x) {
   printf("%d\n",x);
 }
@@ -1130,7 +1129,10 @@ void printInt(int x) {
 An example
 ----------
 
-The following LLVM code demonstrates some of the language features in LLVM. It also serves as an example of what kind of code a Javalette compiler could generate for the `fact` function in section [] \ref{sec:javaletteprograms}.
+The following LLVM code demonstrates some of the language features in LLVM. It
+also serves as an example of what kind of code a Javalette compiler could
+generate for the `fact` function described [here](#example_programs). 
+
 ```llvm
 define i32 @main() {
 entry:  %t0 = call i32 @fact(i32 7)             ; function call
@@ -1169,74 +1171,63 @@ lab2:   %t8 = load i32* %r
 ```
 
 We note several things:
+
 * Registers and local variables have names starting with `%`.
-* The syntax for function calls uses conventional parameter lists
-    (with type info for each parameter).
+* The syntax for function calls uses conventional parameter lists (with type
+  info for each parameter).
 * Booleans have type `i1`, one bit integers.
-* After initialization, we branch explicitly to `lab0`, rather than just
-    falling through.
+* After initialization, we branch explicitly to `lab0`, rather than just falling
+  through.
 
 
 LLVM tools
 ----------
 
-Your compiler will generate a text file with LLVM code, which is
-conventionally stored in files with suffix `.ll`. 
-There are then several tools you might use:
+Your compiler will generate a text file with LLVM code, which is conventionally
+stored in files with suffix `.ll`. There are then several tools you might use:
 
-* The *assembler* `llvm-as`, which translates the
-    file to an equivalent binary format, called the *bitcode*
-    format, stored in files with suffix `.bc` This is just a more
-    efficient form for further processing. There is a
-    *disassembler* `llvm-dis` that translates in the
-    opposite direction.
-* The *linker*
-    `llvm-link`, which can be used to link together e.g.
-    `main.bc` with bitcode file `runtime.bc` that
-    defines the function `@printInt` and the other IO
-    functions. By default, two files are written, `a.out` and
-    `a.out.bc`. As one can guess from the suffix,
-    `a.out.bc` is a bitcode file which contains the definitions
-    from all the input bitcode files.
-* The *interpreter/JIT compiler*
-    `lli`, which directly executes its bitcode file argument,
-    using a Just-In-Time compiler.
-* The *static compiler*
-    `llc`, which translates the file to a native assembler
-    file for any of the supported architectures. It can also produce
-    native object files using the flag `-filetype=obj`
-* The *analyzer/optimizer*
-    `opt`, which can perform a wide range of code
-    optimizations of bitcode.
+* The *assembler* `llvm-as`, which translates the file to an equivalent binary
+  format, called the *bitcode* format, stored in files with suffix `.bc` This is
+  just a more efficient form for further processing. There is a *disassembler*
+  `llvm-dis` that translates in the opposite direction.
+* The *linker* `llvm-link`, which can be used to link together, e.g., `main.bc`
+  with the bitcode file `runtime.bc` that defines the function `@printInt` and
+  the other `IO` functions. By default, two files are written, `a.out` and
+  `a.out.bc`.  As one can guess from the suffix, `a.out.bc` is a bitcode file
+  which contains the definitions from all the input bitcode files.
+* The *interpreter/JIT compiler* `lli`, which directly executes its bitcode file
+  argument, using a Just-In-Time (JIT) compiler.
+* The *static compiler* `llc`, which translates the file to a native assembler
+  file for any of the supported architectures. It can also produce native object
+  files using the flag `-filetype=obj`
+* The *analyzer/optimizer* `opt`, which can perform a wide range of code
+  optimizations of bitcode.
 
-Here are the steps you can use to produce an executable file from
-within your compiler:
+Note that some installations of LLVM require a version number after the tool
+name, for example `llvm-as-3.8` instead of `llvm-as`.
+
+Here are the steps you can use to produce an executable file from within your
+compiler:
 
 * Your compiler produces an LLVM file, let's call it `prog.ll`.
-* Convert the file to bitcode format using `llvm-as`. For
-    our example file, issue the command `llvm-as prog.ll`. This produces the file `prog.bc`.
-* Link the bitcode file with the runtime file using 
-    `llvm-link`. This step requires that you give the name
-    of the output file using the `-o` flag. For example we
-    can name the output file `main.bc` like so:
-    `llvm-link prog.bc runtime.bc -o main.bc`.
-* Generate a native object file using `llc`. By default
-    `llc` will produce assembler output, but by using the flag
-    `-filetype=obj` it will produce an object file. The
-    invocation will look like this: `llc -filetype=obj main.bc`
-* Produce an executable. The LLVM toolchain
-    does not have support for this. The easiest way to produce an
-    executable from an object file is to invoke a C compiler, like so:
-    `gcc main.o`. This will produce the executable file
-    `a.out`. If you want to change the name of the output, use
-    the flag `-o`.
+* Convert the file to bitcode format using `llvm-as`. For our example file,
+  issue the command `llvm-as prog.ll`. This produces the file `prog.bc`.
+* Link the bitcode file with the runtime file using `llvm-link`. This step
+  requires that you give the name of the output file using the `-o` flag. For
+  example we can name the output file `main.bc` like so: `llvm-link prog.bc
+  runtime.bc -o main.bc`.
+* Generate a native object file using `llc`. By default `llc` will produce
+  assembler output, but by using the flag `-filetype=obj` it will produce an
+  object file. The invocation will look like this: `llc -filetype=obj main.bc`
+* Produce an executable. The LLVM toolchain does not have support for this. The
+  easiest way to produce an executable from an object file is to invoke a C
+  compiler, like so: `gcc main.o`. This will produce the executable file
+  `a.out`. If you want to change the name of the output, use the flag `-o`.
     
-    Under the hood `gcc` calls the native
-    linker `ld` but we do not recommend that you do that,
-    because it requires specifying extra libraries and possibly adding
-    paths. GCC solves all that for us. If you want to see how GCC
-    invokes the `ld` command use the `-v` flag when
-    running GCC.
+    Under the hood `gcc` calls the native linker `ld` but we do not recommend
+    that you do that, because it requires specifying extra libraries and
+    possibly adding paths. GCC solves all that for us. If you want to see how
+    GCC invokes the `ld` command use the `-v` flag when running GCC.
 
 
 Optimizations
@@ -1245,8 +1236,9 @@ Optimizations
 To wet your appetite, let us see how the LLVM code can be optimized:
 
 ```
-proj> cat myfile.ll | llvm-as | opt -std-compile-opts | llvm-dis
+> cat myfile.ll | llvm-as | opt -std-compile-opts | llvm-dis
 ```
+
 ```llvm
 declare void @printInt(i32)
 
@@ -1276,34 +1268,31 @@ lab2:
 }
 ```
 
-The first line above is the Unix command to do the optimization.
-We `cat` the LLVM assembly code file and pipe it through the assembler,
-the optimizer and the disassembler.
-The result is an optimized file, where we observe:
+The first line above is the Unix command to do the optimization. We `cat` the
+LLVM assembly code file and pipe it through the assembler, the optimizer and the
+disassembler. The result is an optimized file, where we observe:
 
 * In `main`, the call `fact(7)` has been completely computed to the result
-    5040. The function `fact` is not necessary anymore, but remains, since
-    we have not declared that `fact` is local to this file (one can do that).
-* The definition of `fact` has been considerably optimized. In particular,
-    there is no more any use of memory; the whole computation takes place in
-    registers. 
-* We will explain the `phi` instruction in the lectures; the effect of the
-    first instruction is that the value of `%indvar` will be 0 if control
-    comes to `%lab1` from the block labelled `%entry` (i.e. the first time)
-    and the value will be the value of `%i.01` if control comes from the block
-    labelled `%lab1` (i.e. all other times). The `phi` instruction makes it
-    possible to enforce the SSA form; there is only one assignment in the
-    text to `%indvar`.
+  `5040`. The function `fact` is not necessary anymore, but remains, since we
+  have not declared that `fact` is local to this file (one could do that).
+* The definition of `fact` has been considerably optimized. In particular, there
+  is no more any use of memory; the whole computation takes place in registers. 
+* We will explain the `phi` instruction in the lectures; the effect of the first
+  instruction is that the value of `%indvar` will be 0 if control comes to
+  `%lab1` from the block labelled `%entry` (i.e. the first time) and the value
+  will be the value of `%i.01` if control comes from the block labelled `%lab1`
+  (i.e. all other times). The `phi` instruction makes it possible to enforce the
+  SSA form; there is only one assignment in the text to `%indvar`.
 
-If we save the optimized code in `myfileOpt.bc` (without disassembling it),
-we can link it together with the runtime using:
+If we save the optimized code in `myfileOpt.bc` (without disassembling it), we
+can link it together with the runtime using:
 
 ```
-llvm-link myfileOpt.bc runtime.bc -o a.out.bc
+> llvm-link myfileOpt.bc runtime.bc -o a.out.bc
 ```
 
-If we disassemble the resulting file `a.out.bc`, we get (we have edited
-the file slightly in inessential ways):
+If we disassemble the resulting file `a.out.bc`, we get (we have edited the file
+slightly in inessential ways):
 
 ```llvm
 @fstr = internal constant [4 x i8] c"%d\0A\00"
@@ -1321,12 +1310,12 @@ declare i32 @printf(i8*, ...) nounwind
 What remains is a definition of the format string `@fstr` as a global constant
 (`\0A` is `\\n`), the `getelementpointer` instruction that returns a pointer to
 the beginning of the format string and a call to `printf` with the result value.
-Note that the call to `printInt` has been inlined, i.e. replaced by a call to
+Note that the call to `printInt` has been inlined, i.e., replaced by a call to
 `printf`; so linking includes optimizations across files.
 
-We can now run `a.out.bc` using the just-in-time compiler `lli`.
-Or, if we prefer, we can produce native assembly code
-with `llc`. On my x86 machine, this gives
+We can now run `a.out.bc` using the just-in-time compiler `lli`. Or, if we
+prefer, we can produce native assembly code with `llc`. On a x86 machine, this
+gives
 
 ```asm
         .text
@@ -1350,52 +1339,43 @@ _fstr:                          ## fstr
 Hints for the extensions
 ========================
 
-\label{sec:hints}
-
 One-dimensional arrays
 ----------------------
 
-To implement this extension, the expression `new int[e]` will
-need to allocate memory on the heap for the array itself and for the 
-length attribute. Further, the array elements must be accessed by
-indexing.
+To implement this extension, the expression `new int[e]` will need to allocate
+memory on the heap for the array itself and for the length attribute. Further,
+the array elements must be accessed by indexing.
 
-LLVM provides support for built-in arrays, but these are
-not automatically heap-allocated. Instead, explicit pointers must be
-used. Thus, an array will have the LLVM type `{i32, [0 x t ] *}`,
-where $t$ is the LLVM type of
-the elements. The first `i32` component holds the length; the
-second the array elements themselves.
- The number of elements in the array is here indicated to
-be 0; it is thus your responsibility to make sure to allocate enough
-memory. For memory allocation you should use the C function 
-`calloc`, which initializes
-allocated memory to 0. You must add a type declaration for
-`calloc`,
-but you do not need to worry about it at link time; LLVM:s linker 
-includes `stdlib`. 
+LLVM provides support for built-in arrays, but these are not automatically
+heap-allocated. Instead, explicit pointers must be used. Thus, an array will
+have the LLVM type `{i32, [0 x t] *}`, where `t` is the LLVM type of the
+elements. The first `i32` component holds the length; the second the array
+elements themselves. The number of elements in the array is here indicated to
+be 0; it is thus your responsibility to make sure to allocate enough memory. For
+memory allocation you should use the C function `calloc`, which initializes
+allocated memory to 0. You must add a type declaration for `calloc`, but you do
+not need to worry about it at link time; LLVM:s linker includes `stdlib`. 
 
-Indexing uses the `getelementptr` instruction, which is
-discussed in detail in the lectures.
+Indexing uses the `getelementptr` instruction, which is discussed in detail in
+the lectures.
 
-The LLVM does not include a runtime system with
-garbage collection. Thus, this extension should really include some means for reclaiming heap memory
-that is no longer needed. The simplest would be to add a statement form `free(a)`,
-where `a` is an array variable. This would be straightforward to implement, but is *not*
-necessary to get the credit. 
+The LLVM does not include a runtime system with garbage collection. Thus, this
+extension should really include some means for reclaiming heap memory that is no
+longer needed. The simplest would be to add a statement form `free(a)`, where
+`a` is an array variable. This would be straightforward to implement, but is
+*not* necessary to get the credit. 
 
-More challenging would be to add automatic garbage collection. LLVM offers some support
-for this. If you are interested in doing this, we are willing to give further credits 
-for that task. 
+More challenging would be to add automatic garbage collection. LLVM offers some
+support for this. If you are interested in doing this, we are willing to give
+further credits for that task. 
 
 
 Multidimensional arrays
 -----------------------
 
-This extension involves more work than the previous one. In
-particular, you must understand the `getelementpointer`
-instruction fully and you must generate code to iteratively allocate
-heap memory for subarrays.
+This extension involves more work than the previous one. In particular, you must
+understand the `getelementpointer` instruction fully and you must generate code
+to iteratively allocate heap memory for subarrays.
 
 
 Structures and object-orientation.
@@ -1403,40 +1383,39 @@ Structures and object-orientation.
 
 Techniques to do these extensions are discussed in the lectures. 
 
-From an implementation point of
-view, we recommend that you start with the extension with pointers and structures. 
-You can then reuse much of the machinery developed to implement also
-the first OO extension.
-In fact, one attractive way to implement the object extension is by
-doing a source language translation to Javalette with pointers and structures.
+From an implementation point of view, we recommend that you start with the
+extension with pointers and structures. You can then reuse much of the machinery
+developed to implement also the first OO extension. In fact, one attractive way
+to implement the object extension is by doing a source language translation to
+Javalette with pointers and structures.
 
-The full OO extension requires more sophisticated techniques, to
-properly deal with dynamic dispatch.
+The full OO extension requires more sophisticated techniques, to properly deal
+with dynamic dispatch.
 
 
 Native code generation
 ----------------------
 
-The starting point for this extension could be your LLVM code, but you
-could also start directly from the abstract syntax.
-Of course, within the scope of this course you will not be able to produce a code generator 
-that can compete with `llc`, but it may anyhow be rewarding to do also this final piece
-of the compiler yourself.
+The starting point for this extension could be your LLVM code, but you could
+also start directly from the abstract syntax. Of course, within the scope of
+this course you will not be able to produce a code generator that can compete
+with `llc`, but it may anyhow be rewarding to do also this final piece of the
+compiler yourself.
 
-One major addition here is to handle function calls properly. Unlike JVM and
-LLVM, which both provide some support for function calls, you will now
-have to handle all the machinery with activation records, calling
+One major addition here is to handle function calls properly. Unlike LLVM (or
+the Java virtual machine (JVM), which provides some support for function calls,
+you will now have to handle all the machinery with activation records, calling
 conventions, and jumping to the proper code before and after the call.
 
-There are several assemblers for x86 available and even different syntax versions. We recommend that
-you use the NASM assembler and that you read
-Paul Carter's PC assembly tutorial (linked from course web site) before you start the project, unless 
-you are already familiar with x86 architecture. We do not have strong requirements on code quality
-for your code generator; straightforward code generation is
-acceptable. In particular, you do not need to implement register allocation to improve
-your code. This will also have serious negative consequences for the
-performance of your code. Indeed, a preferrable way to get native code
-is to use a framework like LLVM, which provides an extensive
+There are several assemblers for x86 available and even different syntax
+versions. We recommend that you use the NASM assembler and that you read Paul
+Carter's PC assembly [tutorial](/resources#documentation) before you start the
+project, unless you are already familiar with x86 architecture. We do not have
+strong requirements on code quality for your code generator; straightforward
+code generation is acceptable. In particular, you do not need to implement
+register allocation to improve your code. This will also have serious negative
+consequences for the performance of your code. Indeed, a preferrable way to get
+native code is to use a framework like LLVM, which provides an extensive
 infrastructure for code manipulation.
 
 An introduction to x86 assembler will be given in the lectures.
@@ -1447,68 +1426,72 @@ An introduction to x86 assembler will be given in the lectures.
 Submission format
 =================
 
-1. You prepare your submission by creating a new
-    empty directory, subsequently called the `root` directory.
-    In this directory you create three subdirectories: `doc`, `lib` and `src`.
-2. The `root` directory must, after building as below, contain the executable 
-    compiler `jlc`. The compiler is used as follows:
-    * For submission B and C, the command
-        `jlc myFile.jl` produces the executable file `a.out`. Your code will
-        generate `myFile.ll`; then your compiler will call `llvm-as` and
-        `llvm-link` to assemble and link.
+1. You prepare your submission by creating a new empty directory, subsequently
+   called the `root` directory. In this directory you create three
+   subdirectories: `doc`, `lib` and `src`.
+2. The `root` directory must, after building as below, contain the executable
+   compiler `jlc`. The compiler is used as follows:
+    * For submission B and C, the command `jlc myFile.jl` produces the
+      executable file `a.out`. Your code will generate a `myFile.ll`, which is
+      stored in the *same directory* as the `.jl` source file. Then your
+      compiler will call `llvm-as` and `llvm-link` to assemble and link.
     * Optionally, if you have chosen to implement a native code generator, the
-        executable is `jlc_ARCH`, where `ARCH` is a CPU architecture such
-        as x86. The command `jlc_ARCH myFile.ll` should produce an assembly
-        file `myFile.s` and an executable file `a.out`.
-    The compiler may be a shell script that calls files in `src`, or
-    a symbolic link.
-3. The subdirectory `src` must contain all necessary source code.
-    In this directory, one should be able to build your compiler using `make`.
-    Thus the directory contains:
+      executable is `jlc_ARCH`, where `ARCH` is a CPU architecture such as x86.
+      The command `jlc_ARCH myFile.ll` should produce an assembly file
+      `myFile.s` and an executable file `a.out`.
+    The compiler may be a shell script that calls files in `src`, or a symbolic
+    link.
+3. The subdirectory `src` must contain all necessary source code. In this
+   directory, one should be able to build your compiler using `make`. Thus the
+   directory contains:
     * The BNF Converter source file, if the tool has been used.
     * Alex/Lex/JLex and Happy/Yacc/Cup source files.
-    * Program modules: abstract syntax, lexer, parser, type checker, code generator, top level program.
-    * A `Makefile` for building the compiler from source. The `Makefile` should at
-        least have these targets: 
+    * Program modules: abstract syntax, lexer, parser, type checker, code
+      generator, top level program.
+    * A `Makefile` for building the compiler from source. The `Makefile` should
+      at least have these targets: 
         * A default target (the one that is run when the command `make` is
-            issued. This target should compile all source files in the compiler,
-            and any runtime library files. It does not need to regenerate any
-            source files generated by BNFC, or by any of the parser and lexer
-            generators. After running `make` in the source directory, the
-            compiler in the root directory should work without further actions
-            from the user.
+          issued. This target should compile all source files in the compiler,
+          and any runtime library files. It does not need to regenerate any
+          source files generated by BNFC, or by any of the parser and lexer
+          generators. After running `make` in the source directory, the compiler
+          in the root directory should work without further actions from the
+          user.
         * A `clean` target that removes all files produced during building.
 
-    Note that `src` should **not** contain obsolete files, such as backup files, bitcode files
-    or other unnecessary files.
+    Note that `src` should **not** contain obsolete files, such as backup files,
+    bitcode files or other unnecessary files.
 
 3. In the `lib` directory you place the following files, as needed:
     * For submission B, you place here [`runtime.ll`](/files/runtime.ll) and
-        have the `Makefile` generate `runtime.bc` from it; an LLVM bitcode
-        file with the same functions.
-        The file `runtime.ll` can be downloaded from the course website.
-    * If you choose to do a native code generator for submission C, you place
-        a file `runtime.c` here and have the `Makefile` generate the
-        corresponding `runtime.o`.
+      have the `Makefile` generate `runtime.bc` from it; an LLVM bitcode file
+      with the same functions. The file `runtime.ll` can be downloaded from the
+      course website.
+    * If you choose to do a native code generator for submission C, you place a
+      file `runtime.c` here and have the `Makefile` generate the corresponding
+      `runtime.o`.
 4. The `doc` directory must contain one file in html, ps, plain ascii, or pdf
-    format (proprietary formats not allowed), with the following content:
-    * An explanation of how the compiler is used (what options, what output, etc)
+   format (proprietary formats not allowed), with the following content:
+    * An explanation of how the compiler is used (what options, what output,
+      etc)
     * A specification of the Javalette language (if produced by BNF converter,
-        you may just refer to your BNFC source file).
+      you may just refer to your BNFC source file).
     * A list of shift/reduce conficts in your parser, if you have such
-        conflicts, and an analysis of them.
+      conflicts, and an analysis of them.
     * For submission C, an explicit list of extensions implemented.
     * If applicable, a list of features *not* implemented and the reason why.
-5. If your compiler `jlc` is a shell script, you  may also place this file here
-    before building the tar ball.
+5. If your compiler `jlc` is a shell script, you should also place this file
+   here before building the tar ball.
 6. When you have prepared everything, you create a compressed tar ball:
     
-        tar -czf partA-1.tar.gz doc lib src
+    ```
+    > tar -czf partA-1.tar.gz doc lib src
+    ```
     
-    This produces the file `partA-1.tar.gz` that you upload to Fire.
-    We suggest the naming scheme `partX-Y.tar.gz` where X is A, B or C and
-    Y is your version number (Y=1 the first time you submit, and if your
-    submission is rejected and you must resubmit, the next has Y=2 etc).
+    This produces the file `partA-1.tar.gz` that you upload to Fire.  We suggest
+    the naming scheme `partX-Y.tar.gz` where X is A, B or C and Y is your
+    version number (Y=1 the first time you submit, and if your submission is
+    rejected and you must resubmit, the next has Y=2, etc).
     
     If you prefer, you may compress with `bzip2` instead of `gzip`.
 
@@ -1516,17 +1499,15 @@ Submission format
 Testing your submission
 -----------------------
 
-Your submission must be structured as specified in
-[the section on testing](#testing).
-We suggest that, after having prepared your tarball, you run
+Your submission must be structured as specified in [the section on
+testing](#testing). We suggest that, after having prepared your tarball, you
+run
 
 ```
-runhaskell Grade.hs /tmp/partA-1.tar.gz
+> runghc Grade.hs /tmp/partA-1.tar.gz
 ```
 
-The grading program will extract the content extracting and build your
-compiler, before running the test suite. This is how we test your
-submission, so you can check that building succeeds before
-you submit.
-Don't forget to run the tester with the apprioriate backend and extension
-flag for submissions B and C.
+The grading program will extract the content extracting and build your compiler,
+before running the test suite. This is how we test your submission, so you can
+check that building succeeds before you submit. Don't forget to run the tester
+with the apprioriate backend and extension flag for submissions B and C.
