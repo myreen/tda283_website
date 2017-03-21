@@ -8,6 +8,7 @@ materials = Materials
   { -- Latest news, in order from newest to latest. Can contain markdown.
     newsItems =
       [ "March 17. Birth of the new course homepage - it now looks *fabulous* on mobile devices!"
+      , "March 20. We will start the course this week on Friday from 13:15 to 15:00. All welcome!"
       ]
 
     -- All lectures for the course. These make up the table on the @lectures@
@@ -17,19 +18,19 @@ materials = Materials
     -- into the @files@ subdirectory before rebuilding the course homepage, to
     -- ensure that they all get included.
   , lectures =
-    [ Lecture "March 31" "Introduction, project overview"
+    [ Lecture "March 24" "Introduction, project overview"
         [("old", "lect01-6up.pdf")]
-    , Lecture "April 7" "Software Engineering for Compilers"
+    , Lecture "March 31" "Software Engineering for Compilers"
         [("old", "lect02-6up.pdf"), ("code", "state.tar.gz")]
-    , Lecture "April 21" "LLVM: tools, language"
+    , Lecture "April 7"  "LLVM: tools, language"
         [("old", "lect03-6up.pdf")]
-    , Lecture "April 25" "Code generation for LLVM"
+    , Lecture "April 21" "Code generation for LLVM"
         [("old", "lect04-6up.pdf"), ("code", "evenodd.ll")]
-    , Lecture "May 2"    "Project extensions: arrays, dynamic structures, objects"
+    , Lecture "April 25" "Project extensions: arrays, dynamic structures, objects"
         [("old", "lect05-6up.pdf")]
-    , Lecture "May 9"    "Code generation for x86"
+    , Lecture "May 2"    "Code generation for x86"
         [("old", "lect06-6up.pdf")]
-    , Lecture "May 12"   "Functions"
+    , Lecture "May 9"   "Functions"
         [("old", "lect07-6up.pdf")]
     , Lecture "May 16"   "Control flow graphs, data analysis"
         [("old", "lect08-6up.pdf")]
@@ -119,8 +120,8 @@ info = Info
     -- The deadlines for the labs.
     -- Available to templates as @deadline1/2/3/n@.
   , labDeadlines =
-      [ "Sunday, April 16 at 23:59"
-      , "Sunday, May 7 at 23:59"
+      [ "Sunday, April 9 at 23:59"
+      , "Sunday, April 30 at 23:59"
       , "Sunday, May 21 at 23:59"
       ]
   }
@@ -128,9 +129,10 @@ info = Info
 fire = "https://cc-lp4-17.frs.cse.chalmers.se"
 
 subst = Subst
-    [ ("javalette", "[Javalette](/project#javalette)")
-    , ("timeedit",  "[TimeEdit](/schedule)")
-    , ("fire",      "[Fire]" ++ parens fire)
+    [ ("javalette",   "[Javalette](/project#javalette)")
+    , ("timeedit",    "[TimeEdit](/schedule)")
+    , ("fire",        "[Fire]" ++ parens fire)
+    , ("llvmversion", "LLVM-3.8")
     ]
   where
     parens x = "(" ++ x ++ ")"
