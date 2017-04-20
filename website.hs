@@ -7,8 +7,9 @@ import CCWF
 materials = Materials
   { -- Latest news, in order from newest to latest. Can contain markdown.
     newsItems =
-      [ "March 17. Birth of the new course homepage - it now looks *fabulous* on mobile devices!"
+      [ "April 20. No lecture on Friday 21 April. (lecturer is sick)"
       , "March 20. We will start the course this week on Friday from 13:15 to 15:00. All welcome!"
+      , "March 17. Birth of the new course homepage - it now looks *fabulous* on mobile devices!"
       ]
 
     -- All lectures for the course. These make up the table on the @lectures@
