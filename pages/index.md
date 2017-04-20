@@ -36,7 +36,7 @@ Course essentials
 
 * The course consists of a single project: constructing a
     [compiler for a small, Java-like programming language](/project) in groups
-    of *one to three* students. Groups of *two* are recommended.
+    of *one to two* students. Groups of *two* are recommended.
 * To pass the course, you must pass
     *three hand-ins* via the [Fire system](/about#submissions), and a short
     *oral exam* during the exam week. See "[examination](/exam)" for details,

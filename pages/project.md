@@ -1448,8 +1448,9 @@ Submission format
     * Alex/Lex/JLex and Happy/Yacc/Cup source files.
     * Program modules: abstract syntax, lexer, parser, type checker, code
       generator, top level program.
-    * A `Makefile` for building the compiler from source. The `Makefile` should
-      at least have these targets: 
+    * A `Makefile` for building the compiler from source. Note that the
+      `Makefile` may also be located in the root directory. The `Makefile`
+      should at least have these targets: 
         * A default target (the one that is run when the command `make` is
           issued. This target should compile all source files in the compiler,
           and any runtime library files. It does not need to regenerate any

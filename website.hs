@@ -19,11 +19,11 @@ materials = Materials
     -- ensure that they all get included.
   , lectures =
     [ Lecture "March 24" "Introduction, project overview"
-        [("old", "lect01-6up.pdf")]
+        [("new", "lect01-6up.pdf")]
     , Lecture "March 31" "Software Engineering for Compilers"
-        [("old", "lect02-6up.pdf"), ("code", "state.tar.gz")]
+        [("new", "lect02-6up.pdf"), ("code", "state.tar.gz")]
     , Lecture "April 7"  "LLVM: tools, language"
-        [("old", "lect03-6up.pdf")]
+        [("new", "lect03-6up.pdf")]
     , Lecture "April 21" "Code generation for LLVM"
         [("old", "lect04-6up.pdf"), ("code", "evenodd.ll")]
     , Lecture "April 25" "Project extensions: arrays, dynamic structures, objects"
@@ -70,7 +70,7 @@ info = Info
       , teacherBioURL = Just "https://www.chalmers.se/en/staff/Pages/alexg.aspx"
       , teacherPhone  = "+46 31 772 61 54"
       , teacherOffice = Just "EDIT 6479"
-      , teacherHours  = Just "TBA"
+      , teacherHours  = Just "Thursdays 13:00--15:00, EDIT 6479"
       }
 
     -- The examiner of the course, if different from the course responsible.
