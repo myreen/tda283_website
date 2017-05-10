@@ -15,4 +15,6 @@ Your input is important for the further development of the course!
 Course representatives
 ----------------------
 
-To be announced.
+- Pierre Kraft (pierrek "at" student.chalmers.se)
+- Frederik Hanghøj Iversen (hanghj "at" student.chalmers.se)
+- Karin Wibergh (karin.wibergh "at" gmail.com)
