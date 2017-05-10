@@ -7,7 +7,15 @@ import CCWF
 materials = Materials
   { -- Latest news, in order from newest to latest. Can contain markdown.
     newsItems =
-      [ "April 20. No lecture on Friday 21 April. (lecturer is sick)"
+      [ "May 9. We have updated the test suite. We experienced some trouble with newer\
+        \ Debian based operating systems. They have increased a number of security\
+        \ aspects that cause compilation to fail. This can be fixed with an extra flag for\
+        \ GCC during linking. If you experience trouble with this, you can give the\
+        \ `-g-no-pie` flag to the test suite, which passes it on to GCC."
+      , "April 28. No office hours on Thursday 4 May (I am abroad)."
+      , "April 26. The deadline of part B has been extended with a week."
+      , "April 25. Extra lecture on Friday 28 April, catching up from last week."
+      , "April 20. No lecture on Friday 21 April. (lecturer is sick)"
       , "March 20. We will start the course this week on Friday from 13:15 to 15:00. All welcome!"
       , "March 17. Birth of the new course homepage - it now looks *fabulous* on mobile devices!"
       ]
@@ -25,14 +33,14 @@ materials = Materials
         [("new", "lect02-6up.pdf"), ("code", "state.tar.gz")]
     , Lecture "April 7"  "LLVM: tools, language"
         [("new", "lect03-6up.pdf")]
-    , Lecture "April 21" "Code generation for LLVM"
-        [("old", "lect04-6up.pdf"), ("code", "evenodd.ll")]
-    , Lecture "April 25" "Project extensions: arrays, dynamic structures, objects"
-        [("old", "lect05-6up.pdf")]
+    , Lecture "April 25" "Code generation for LLVM"
+        [("new", "lect04-6up.pdf"), ("code", "evenodd.ll")]
+    , Lecture "April 28" "Project extensions: arrays, dynamic structures, objects"
+        [("new", "lect05-6up.pdf")]
     , Lecture "May 2"    "Code generation for x86"
-        [("old", "lect06-6up.pdf")]
+        [("new", "lect06-6up.pdf")]
     , Lecture "May 9"   "Functions"
-        [("old", "lect07-6up.pdf")]
+        [("new", "lect07-6up.pdf")]
     , Lecture "May 16"   "Control flow graphs, data analysis"
         [("old", "lect08-6up.pdf")]
     , Lecture "May 23"   "Guest lecture/project summary"
@@ -122,7 +130,7 @@ info = Info
     -- Available to templates as @deadline1/2/3/n@.
   , labDeadlines =
       [ "Sunday, April 9 at 23:59"
-      , "Sunday, April 30 at 23:59"
+      , "Sunday, May 7 at 23:59"
       , "Sunday, May 21 at 23:59"
       ]
   }
