@@ -857,7 +857,10 @@ Note that this extension gives you *two* credits, but it is not enough to just
 implement a naïve code generator. You must also implement some sort of
 optimization, such as register allocation or peephole optimization. Talk to
 \$teacher\$ about which optimization(s) to implement before attempting the x86
-code generator.
+code generator. The x86 code generation extension acts also as a kind of 
+multiplier, that is, implementing another extension, for example arrays, will 
+give you two credits instead of one. This fair because you need to generate
+code for both LLVM and x86.
 
 
 <a name="optstudy"></a>
@@ -1437,7 +1440,7 @@ Submission format
       compiler will call `llvm-as` and `llvm-link` to assemble and link.
     * Optionally, if you have chosen to implement a native code generator, the
       executable is `jlc_ARCH`, where `ARCH` is a CPU architecture such as x86.
-      The command `jlc_ARCH myFile.ll` should produce an assembly file
+      The command `jlc_ARCH myFile.jl` should produce an assembly file
       `myFile.s` and an executable file `a.out`.
     The compiler may be a shell script that calls files in `src`, or a symbolic
     link.
