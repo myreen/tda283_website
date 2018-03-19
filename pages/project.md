@@ -535,7 +535,8 @@ int[] c = new int[30];
 ```
 
 After the above code, `a.length` evaluates to 20 and `a` refers to an array of
-20 integer values, indexed from 0 to 19 (indexing always starts at 0).
+20 integer values, indexed from 0 to 19 (indexing always starts at 0). It is not 
+required to generate bounds-checking code.
 
 Functions may have arrays as arguments and return arrays as results:
 

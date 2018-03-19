@@ -67,6 +67,7 @@ The project is divided into three parts with separate submission dates:
 
 All parts are submitted using the [Fire](/fire) system.
 
+<a name="oral"></a>
 
 Oral exam
 ---------
@@ -94,14 +95,19 @@ The oral exam can take place even if your project was rejected for you to make
 some minor corrections. However, if we could not test your compiler at all, the
 oral exam will be postponed.
 
-Time booking will done via a Doodle poll organized the week before the exam.
+Please pick a slot using the doodle below:
 
-\$
+[https://doodle.com/poll/58q6pf36hhmcbr4k](https://doodle.com/poll/58q6pf36hhmcbr4k)
+
+The oral exams will be in EDIT 6128 and both the examiner (\$examinerfull\$) and
+the course responsible (\$teacherfull\$) will be present.
 
 Re-sit exam
 -----------
 
-In the re-exam week in August you have the opportunity to redo the oral exam.
-This will take place on *Tuesday 16 August 2016 and Friday 19 August from 13:00
-to 15:00*. Please contact \$teacher\$ to book a time slot. You need to send your
-compiler at least a week in advance to \$teacher\$.
+In the re-exam week in December there is an opportunity to redo the *oral* exam.
+Note that this only concerns students who failed the original oral exam. It is
+not possible to submit new versions of your compiler in Fire. So, it is a
+prerequisite that the submissions for the different parts in Fire are accepted.
+The re-sit oral exam will take place on *Monday 18 December 2017*. Please
+contact \$teacher\$ if you want to make use of this opportunity.

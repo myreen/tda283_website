@@ -7,7 +7,14 @@ import CCWF
 materials = Materials
   { -- Latest news, in order from newest to latest. Can contain markdown.
     newsItems =
-      [ "May 9. We have updated the test suite. We experienced some trouble with newer\
+      [ "November 24. There is going to be a re-sit oral exam. See the [examination](/exam) page."
+      , "May 22. Please book a slot for the [oral exam](/exam#oral) using [this doodle](https://doodle.com/poll/58q6pf36hhmcbr4k)."
+      , "May 17. We moved the last (guest) lecture to Wednesday 24 May at 10:00."
+      , "May 15. The notes of the midterm meeting are now available on the\
+        \ [course evaluation page](/evaluation)."
+      , "May 15. We moved next week's guest lecture to Monday 22 May at 13:00, due\
+        \ to collisions with other teaching for both the guest lecturer (Magnus Myreen) and me."
+      , "May 9. We have updated the test suite. We experienced some trouble with newer\
         \ Debian based operating systems. They have increased a number of security\
         \ aspects that cause compilation to fail. This can be fixed with an extra flag for\
         \ GCC during linking. If you experience trouble with this, you can give the\
@@ -42,9 +49,9 @@ materials = Materials
     , Lecture "May 9"   "Functions"
         [("new", "lect07-6up.pdf")]
     , Lecture "May 16"   "Control flow graphs, data analysis"
-        [("old", "lect08-6up.pdf")]
-    , Lecture "May 23"   "Guest lecture/project summary"
-        [("old", "lect09-6up.pdf"), ("guest", "/guest_lecture_myreen-6up.pdf")]
+        [("new", "lect08-6up.pdf")]
+    , Lecture "May 22"   "Guest lecture/project summary"
+        [("new", "lect09-6up.pdf"), ("guest", "/guest_lecture_myreen-6up.pdf")]
     ]
 
     -- Files we provide that are not tied to any particular lecture.
