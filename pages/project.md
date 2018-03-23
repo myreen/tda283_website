@@ -1321,7 +1321,7 @@ We can now run `a.out.bc` using the just-in-time compiler `lli`. Or, if we
 prefer, we can produce native assembly code with `llc`. On a x86 machine, this
 gives
 
-```asm
+``` 
         .text
         .align  4,0x90
         .globl  _main
