@@ -12,16 +12,17 @@ model](https://student.portal.chalmers.se/en/chalmersstudies/courseinformation/c
 Your input is important for the further development of the course!
 
 
-Course representatives
-----------------------
+Course representatives for 2018
+-------------------------------
 
-- Pierre Kraft (pierrek "at" student.chalmers.se)
-- Frederik Hanghøj Iversen (hanghj "at" student.chalmers.se)
-- Karin Wibergh (karin.wibergh "at" gmail.com)
+- Mehmet Atakan Serin (atakan "at" student.chalmers.se)
+- Albin Hellqvist (albhel "at" student.chalmers.se)
+- Albert Overland (overland "at" student.chalmers.se)
+- Raphael Isemann (isemann "at" student.chalmers.se)
 
 
-Midterm meeting notes
----------------------
+Midterm meeting notes from 2017
+-------------------------------
 
 On the 26th of April 2017 we have had the midterm meeting. The following points
 were brought up during the meeting:

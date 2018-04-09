@@ -7,24 +7,9 @@ import CCWF
 materials = Materials
   { -- Latest news, in order from newest to latest. Can contain markdown.
     newsItems =
-      [ "November 24. There is going to be a re-sit oral exam. See the [examination](/exam) page."
-      , "May 22. Please book a slot for the [oral exam](/exam#oral) using [this doodle](https://doodle.com/poll/58q6pf36hhmcbr4k)."
-      , "May 17. We moved the last (guest) lecture to Wednesday 24 May at 10:00."
-      , "May 15. The notes of the midterm meeting are now available on the\
-        \ [course evaluation page](/evaluation)."
-      , "May 15. We moved next week's guest lecture to Monday 22 May at 13:00, due\
-        \ to collisions with other teaching for both the guest lecturer (Magnus Myreen) and me."
-      , "May 9. We have updated the test suite. We experienced some trouble with newer\
-        \ Debian based operating systems. They have increased a number of security\
-        \ aspects that cause compilation to fail. This can be fixed with an extra flag for\
-        \ GCC during linking. If you experience trouble with this, you can give the\
-        \ `-g-no-pie` flag to the test suite, which passes it on to GCC."
-      , "April 28. No office hours on Thursday 4 May (I am abroad)."
-      , "April 26. The deadline of part B has been extended with a week."
-      , "April 25. Extra lecture on Friday 28 April, catching up from last week."
-      , "April 20. No lecture on Friday 21 April. (lecturer is sick)"
-      , "March 20. We will start the course this week on Friday from 13:15 to 15:00. All welcome!"
-      , "March 17. Birth of the new course homepage - it now looks *fabulous* on mobile devices!"
+      [ "Mar 26. Made sure **submission instructions** are part of the project page."
+      , "Mar 26. Test suite has been tweaked."
+      , "Mar 26. Added lecture notes for Lec 1 and Lec 2."
       ]
 
     -- All lectures for the course. These make up the table on the @lectures@
@@ -34,24 +19,26 @@ materials = Materials
     -- into the @files@ subdirectory before rebuilding the course homepage, to
     -- ensure that they all get included.
   , lectures =
-    [ Lecture "March 24" "Introduction, project overview"
+    [ Lecture "March 20" "Introduction, project overview"
         [("new", "lect01-6up.pdf")]
-    , Lecture "March 31" "Software Engineering for Compilers"
+    , Lecture "March 23" "Software Engineering for Compilers"
         [("new", "lect02-6up.pdf"), ("code", "state.tar.gz")]
-    , Lecture "April 7"  "LLVM: tools, language"
+    , Lecture "April 9"  "LLVM: tools, language"
         [("new", "lect03-6up.pdf")]
-    , Lecture "April 25" "Code generation for LLVM"
-        [("new", "lect04-6up.pdf"), ("code", "evenodd.ll")]
-    , Lecture "April 28" "Project extensions: arrays, dynamic structures, objects"
-        [("new", "lect05-6up.pdf")]
-    , Lecture "May 2"    "Code generation for x86"
-        [("new", "lect06-6up.pdf")]
-    , Lecture "May 9"   "Functions"
-        [("new", "lect07-6up.pdf")]
-    , Lecture "May 16"   "Control flow graphs, data analysis"
-        [("new", "lect08-6up.pdf")]
+    , Lecture "April 10" "Code generation for LLVM"
+        [("old", "lect04-6up.pdf"), ("code", "evenodd.ll")]
+    , Lecture "April 17" "Project extensions: arrays, dynamic structures, objects"
+        [("old", "lect05-6up.pdf")]
+    , Lecture "April 27"    "Code generation for x86"
+        [("old", "lect06-6up.pdf")]
+    , Lecture "May 4"   "Functions"
+        [("old", "lect07-6up.pdf")]
+    , Lecture "May 8"   "Control flow graphs, data analysis"
+        [("old", "lect08-6up.pdf")]
+    , Lecture "May 15"   "*to-be-announced*"
+        []
     , Lecture "May 22"   "Guest lecture/project summary"
-        [("new", "lect09-6up.pdf"), ("guest", "/guest_lecture_myreen-6up.pdf")]
+        [("old", "lect09-6up.pdf")]
     ]
 
     -- Files we provide that are not tied to any particular lecture.
@@ -70,7 +57,7 @@ info = Info
     -- The study period in which the course is given.
   , studyPeriod = 4
     -- The year this particular course is given.
-  , courseYear = 2017
+  , courseYear = 2018
     -- Name of course responsible, plus email.
     -- This is parameterized to make course handovers easier, since the name
     -- and/or email of the course responsible pops up here and there throughout
@@ -81,12 +68,12 @@ info = Info
     -- as @teacherphone@, office as @teacheroffice@ and office hours as
     -- @teacherhours@.
   , teacher = Teacher
-      { teacherName   = "Alex Gerdes"
-      , teacherEmail  = "alexg \"at\" chalmers.se"
-      , teacherBioURL = Just "https://www.chalmers.se/en/staff/Pages/alexg.aspx"
-      , teacherPhone  = "+46 31 772 61 54"
-      , teacherOffice = Just "EDIT 6479"
-      , teacherHours  = Just "Thursdays 13:00--15:00, EDIT 6479"
+      { teacherName   = "Magnus Myreen"
+      , teacherEmail  = "myreen \"at\" chalmers.se"
+      , teacherBioURL = Nothing
+      , teacherPhone  = "+46 31 772 16 64"
+      , teacherOffice = Just "EDIT 5452"
+      , teacherHours  = Just "10:00-11:45 on Mondays"
       }
 
     -- The examiner of the course, if different from the course responsible.
@@ -99,30 +86,30 @@ info = Info
       , teacherHours  = Nothing
       }
 
-      
+
     -- Same information as for 'teacher'. All fields of the first assistant
     -- are available to templates the same as for @teacher@, but with the
     -- prefix @assistant@ instead of @teacher@.
     -- The full list of assistants is available as @assistants@.
   , assistants =
       [ Teacher
-          { teacherName   = "Anton Ekblad"
-          , teacherEmail  = "anton.ekblad \"at\" chalmers.se"
+          { teacherName   = "Oskar Abrahamsson"
+          , teacherEmail  = "aboskar \"at\" chalmers.se"
           , teacherPhone  = "+46 31 772 10 28"
           , teacherBioURL = Nothing
-          , teacherOffice = Just "EDIT 5463"
+          , teacherOffice = Just "EDIT 5461"
           , teacherHours  = Nothing
           }
       ]
 
-    -- URL of the official course syllabus for 2017.
+    -- URL of the official course syllabus for 2018.
     -- This changes every year: don't forget to update!
     -- Available to templates as @syllabus@.
   , syllabusURL = "https://www.student.chalmers.se/sp/course?course_id=24405"
 
     -- URL of the Google group for this year's instance. Don't forget to update!
     -- Available to templates as @group@.
-  , googleGroupURL = Just "https://groups.google.com/d/forum/compiler-construction-vt17"
+  , googleGroupURL = Just "https://groups.google.com/d/forum/compiler-construction-vt18"
 
     -- URL of the lab submission system used this year, if any.
     -- Don't forget to update!
@@ -136,13 +123,13 @@ info = Info
     -- The deadlines for the labs.
     -- Available to templates as @deadline1/2/3/n@.
   , labDeadlines =
-      [ "Sunday, April 9 at 23:59"
-      , "Sunday, May 7 at 23:59"
-      , "Sunday, May 21 at 23:59"
+      [ "Sunday, April 8 at 23:59"
+      , "Sunday, May 6 at 23:59"
+      , "Sunday, May 20 at 23:59"
       ]
   }
 
-fire = "https://cc-lp4-17.frs.cse.chalmers.se"
+fire = "https://cc-lp4-18.frs.cse.chalmers.se"
 
 subst = Subst
     [ ("javalette",   "[Javalette](/project#javalette)")

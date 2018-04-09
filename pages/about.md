@@ -34,10 +34,10 @@ The official syllabus can be found [here]($syllabus$).
 
 <a name="teachers"></a>
 
-Teachers
---------
+Teacher
+-------
 
-* **Course responsible**:
+* **Course responsible and examiner**:
     \$if(teacherbio)\$
       [\$teacherfull\$](\$teacherbio\$)
     \$else\$
@@ -51,26 +51,10 @@ Teachers
     \$if(teacherhours)\$
       Office hours: \$teacherhours\$
     \$endif\$
-\$if(examinerfull)\$
-* **Examiner**:
-    \$if(examinerbio)\$
-      [\$examinerfull\$](\$examinerbio\$)
-    \$else\$
-      \$examinerfull\$
-    \$endif\$<br>
-    Phone: \$examinerphone\$<br>
-    Email: \$examineremail\$<br>
-    \$if(examineroffice)\$
-      Office: \$examineroffice\$<br>
-    \$endif\$
-    \$if(examinerhours)\$
-      Office hours: \$examinerhours\$
-    \$endif\$
-\$endif\$
 
 
-Assistants
-----------
+Assistant
+---------
 
 <ul>
 \$for(assistants)\$

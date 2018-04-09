@@ -47,12 +47,12 @@ The project is divided into three parts with separate submission dates:
    directory, provided by the [testsuite](/project#testing). Your submission
    must be prepared according to ['submission'](/project#submission_format) section in
    the project description and pass the automatic tester.
-    
+
     Front end issues are part of the syllabus for the prerequisite course
     Programming language technology. These things are not taught in this course.
     You are expected to be able to implement the lexer, parser and typechecker
     for Javalette using previous knowledge during the first week of this course.
-   
+
     The deadline for the first submission is *\$deadline1\$*. The deadline is
     sharp; the submission system will not accept late submissions. Of course, if
     you are ill or have another good reason, you may get an extended deadline,
@@ -95,19 +95,5 @@ The oral exam can take place even if your project was rejected for you to make
 some minor corrections. However, if we could not test your compiler at all, the
 oral exam will be postponed.
 
-Please pick a slot using the doodle below:
-
-[https://doodle.com/poll/58q6pf36hhmcbr4k](https://doodle.com/poll/58q6pf36hhmcbr4k)
-
-The oral exams will be in EDIT 6128 and both the examiner (\$examinerfull\$) and
-the course responsible (\$teacherfull\$) will be present.
-
-Re-sit exam
------------
-
-In the re-exam week in December there is an opportunity to redo the *oral* exam.
-Note that this only concerns students who failed the original oral exam. It is
-not possible to submit new versions of your compiler in Fire. So, it is a
-prerequisite that the submissions for the different parts in Fire are accepted.
-The re-sit oral exam will take place on *Monday 18 December 2017*. Please
-contact \$teacher\$ if you want to make use of this opportunity.
+Closer to the time of the exam week, there will be a link here to a
+doodle where you can pick a time for your oral exam.
