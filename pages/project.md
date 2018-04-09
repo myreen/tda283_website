@@ -122,7 +122,7 @@ code with other students or to get, or even look at, code developed by them. On
 the other hand, we encourage discussions among participants in the course about
 the project. As long as you follow the simple and absolute rule not to share
 code, we have no objections to questions asked and answered at a conceptual
-level. 
+level.
 
 If you do get significant help from some other participant, it is natural to
 acknowledge this in your documentation file.
@@ -145,7 +145,7 @@ compilation. It also forms a basis for extensions in several directions.
 The basic language has no heap-allocated data. However, the extensions involve
 (Java-like) arrays, structures and objects, all of which are allocated on the
 heap. The extended language is designed to be garbage-collected, but you will
-not implement garbage collection as part of your project. 
+not implement garbage collection as part of your project.
 
 The description in this document is intentionally a bit vague and based on
 examples; it is part of your task to define the language precisely.  However,
@@ -176,9 +176,9 @@ A program that prints the even numbers smaller than 10 is
 int main () {
   int i = 0 ;
   while (i < 10) {
-    if (i % 2 == 0) printInt(i) ; 
+    if (i % 2 == 0) printInt(i) ;
     i++ ;
-  } 
+  }
   return 0 ;
 }
 ```
@@ -190,7 +190,7 @@ int main () {
   printInt(fact(7)) ;
   printInt(factr(7)) ;
   return 0 ;
-} 
+}
 
 // iterative factorial
 
@@ -203,16 +203,16 @@ int fact (int n) {
     i++ ;
   }
   return r ;
-} 
+}
 
 // recursive factorial
 
 int factr (int n) {
-  if (n < 2) 
+  if (n < 2)
     return 1 ;
-  else 
-    return n * factr(n-1) ; 
-} 
+  else
+    return n * factr(n-1) ;
+}
 ```
 
 <a name="structure"></a>
@@ -226,7 +226,7 @@ A function definition has a *return type*, a *name*, a *parameter list*, and a
 *body* consisting of a *block*.
 
 The names of the functions defined in a program must be different (i.e, there is
-no overloading). 
+no overloading).
 
 One function must have the name `main`. Its return type must be `int` and its
 parameter list empty. Execution of a program consists of executing `main`.
@@ -281,31 +281,31 @@ file](/files/Javalette.cf).
 
 * *Empty statement*: `";"`
 * *Variable declarations*: `Type Ident ";"`
-    
+
     Comment: Several variables may be declared simultaneously, as in
     `int i, j;` and initial values may be specified, as in
     `int n = 0;`
 * *Assignments*: `Ident "=" Exp ";"`
 * *Increments and decrements*: `Ident "++" ";"` and `Ident "--" ";"`
-    
+
     Comment: Only for variables of type `int`; can be seen as sugar for assignments.
 * *Conditionals*:  `"if" "(" Exp ")" Stmt "else" Stmt`
-    
+
     Comment: Can be without the `else` part.
 * *While loops* : `"while" "(" Exp ")" Stmt`
 * *Returns*: `"return" Exp ";"`
-    
+
     Comment: No `Exp` for type `void`.
 * *Expressions of type* `void`: `Exp ";"`
-    
+
     Comment: The expression here will be a call to a void function (no other
     expressions have type `void`).
 * *Blocks*: `"{" [Stmt] "}"`
-    
+
     Comment: A function body is a statement of this form.
 
 Declarations may appear anywhere within a block, but a variable must be declared
-before it is used. 
+before it is used.
 
 A variable declared in an outer scope may be redeclared in a block; the new
 declaration then shadows the previous declaration for the rest of the block.
@@ -335,7 +335,7 @@ Expressions in Javalette have the following forms:
     as expected.
 * *Disjunctions and conjunctions*: `||` and `&&`.
     These operators have *lazy semantics*, i.e.,
-    
+
     * In `a && b`, if `a` evaluates to `false`,
         `b` is not evaluated and the value of the whole expression is `false`.
     * In `a || b`, if `a` evaluates to `true`,
@@ -359,10 +359,10 @@ possibly with an exponent (positive or negative), e.g. `1.6e-48`.
 * *String literals*: ASCII characters in double quotes, e.g. `"Hello world"`
 (escapes as usual: \verb#\n \t \" \\#). Can only be used in calls of
 primitive function `printString`.
-* *Identifiers*: a letter followed by an optional 
+* *Identifiers*: a letter followed by an optional
 sequence of letters, digits, and underscores.
 * *Reserved words*: These include `while`,
-  `if`, `else` and `return`. 
+  `if`, `else` and `return`.
 
 Comments in Javalette are enclosed between `/\*` and `\*/` or extend from `//`
 to the end of line, or from `#` to the end of line (to treat C preprocessor
@@ -488,7 +488,7 @@ annotate all subexpressions with type information; this will be useful during
 code generation.
 
 To do this, you can add one further form of expression to your BNFC source,
-namely a type-annotated expression. 
+namely a type-annotated expression.
 
 
 <a name="extensions"></a>
@@ -514,7 +514,7 @@ The basic Javalette language has no heap-allocated data, so memory management
 consists only of managing the run-time stack. In this extension you will add
 one-dimensional arrays to basic Javalette. To get the credit, you must implement
 this in the front end and in the respective back end.
- 
+
 Arrays are Java-like: variables of array type contain a reference to the actual
 array, which is allocated on the heap. Arrays are explicitly created using a
 `new` construct and variables of array type have an attribute, `length`, which
@@ -535,7 +535,7 @@ int[] c = new int[30];
 ```
 
 After the above code, `a.length` evaluates to 20 and `a` refers to an array of
-20 integer values, indexed from 0 to 19 (indexing always starts at 0). It is not 
+20 integer values, indexed from 0 to 19 (indexing always starts at 0). It is not
 required to generate bounds-checking code.
 
 Functions may have arrays as arguments and return arrays as results:
@@ -619,17 +619,17 @@ which is enough to implement lists and trees.  The source language extensions
 are the following:
 
 * Two new forms of top-level definitions are added (in the basic
-    language there are only function definitions): 
+    language there are only function definitions):
     1. *Structure definitions*, as examplified by
         ```c
         struct Node {
-           int elem; 
-           list next; 
+           int elem;
+           list next;
         };
         ````
-    2. *Pointer type definitions*, as examplified by 
+    2. *Pointer type definitions*, as examplified by
         ```c
-        typedef struct Node *list; 
+        typedef struct Node *list;
         ```
         Note that this second form is intended to be very restricted. We can
         only use it to introduce new types that represent pointers to
@@ -641,7 +641,7 @@ are the following:
         where `new` is a new reserved word.  A new block of heap
         memory is allocated and the expression returns a pointer to that
         memory. The type of this expression is thus the type of pointers
-        to `Node`, i.e. `list`. 
+        to `Node`, i.e. `list`.
     2. *Pointer dereferencing*,
         examplified by `xs->next`. This returns the content of the
         field `next` of the heap node pointed to by `xs`.
@@ -681,7 +681,7 @@ list cons (int x, list xs) {
 list fromTo (int m, int n) {
   if (m>n)
     return (list)null;
-  else 
+  else
     return cons (m, fromTo (m + 1, n));
 }
 
@@ -696,7 +696,7 @@ int length (list xs) {
 ```
 
 This and a few other test programs can be found in the `extensions/pointers`
-subdirectory of the test suite. 
+subdirectory of the test suite.
 
 
 <a name="oop1"></a>
@@ -715,7 +715,7 @@ class Counter {
   int val;
 
   void incr () {
-    val++; 
+    val++;
     return;
   }
 
@@ -742,69 +742,69 @@ a couple of times. The program writes 3 to `stdout`.
 The source language extensions, from basic Javalette, are
 
 * A new form of top-level definition: a *class declaration*.
-    A class has a number of instance variables and a number of methods. 
-   
+    A class has a number of instance variables and a number of methods.
+
     Instance variables are private and are *only* visible within the methods of
-    the class. We could not have written `c.val` in `main`. 
-    
+    the class. We could not have written `c.val` in `main`.
+
     All methods are public; there is no way to define private methods.  It would
     not be difficult in principle to allow this, but we must limit the task.
-    
+
     There is always only one implicit constructor method in a class, with no
     arguments.  Instance variables are, as all variables in Javalette,
     initialized to default values: numbers to 0, booleans to false and object
     references to null.
-    
+
     We support a simple form of single inheritance: a class may extend another
     one:
-    
+
     ```java
     class Point2 {
       int x;
       int y;
-    
+
       void move (int dx, int dy) {
          x = x + dx;
          y = y + dy;
       }
-    
+
       int getX () { return x; }
-    
+
       int getY () { return y; }
     }
-    
+
     class Point3 extends Point2 {
       int z;
-    
+
       void moveZ (int dz) {
         z = z + dz;
       }
-    
+
       int getZ () { return z; }
-    
+
     }
-    
+
     int main () {
       Point2 p;
-    
+
       Point3 q = new Point3;
-    
+
       q.move (2,4);
       q.moveZ (7);
       p = q;
-    
+
       p.move (3,5);
-     
-      printInt (p.getX());  
-      printInt (p.getY());  
-      printInt (q.getZ());  
-    
+
+      printInt (p.getX());
+      printInt (p.getY());
+      printInt (q.getZ());
+
       return 0;
     }
     ```
-    
+
     Here `Point3` is a subclass of `Point2`. The program above prints 5, 9 and 7.
-    
+
     Classes are types; we can declare variables to be (references to) objects of
     a certain class. Note that we have subtyping: we can do the assignment `p =
     q;`. The reverse assignment, `q = p;` would be a type error. We have a
@@ -812,7 +812,7 @@ The source language extensions, from basic Javalette, are
     there is no need for dynamic dispatch; all method calls can be statically
     determined.
 * There are four new forms of expression:
-    
+
     1. `"new" Ident` creates a new object, with fields initialized as described
         above.
     2. `Expr "." Expr`, is a method call; the first expression must evaluate to
@@ -858,8 +858,8 @@ Note that this extension gives you *two* credits, but it is not enough to just
 implement a naïve code generator. You must also implement some sort of
 optimization, such as register allocation or peephole optimization. Talk to
 \$teacher\$ about which optimization(s) to implement before attempting the x86
-code generator. The x86 code generation extension acts also as a kind of 
-multiplier, that is, implementing another extension, for example arrays, will 
+code generator. The x86 code generation extension acts also as a kind of
+multiplier, that is, implementing another extension, for example arrays, will
 give you two credits instead of one. This fair because you need to generate
 code for both LLVM and x86.
 
@@ -946,7 +946,7 @@ Summarizing, your compiler must:
   other than 0.
 
 Furthermore, for correct programs, your compiled programs, must run and give
-correct output. 
+correct output.
 
 
 Automated testing
@@ -967,12 +967,12 @@ the `.input` file. Note that the test driver handles this; your generated code
 should read from `stdin` and write to `stdout`.
 
 The tests are of course not exhaustive. It is quite possible that the grader
-will discover bugs in your code even if it passes all tests. 
+will discover bugs in your code even if it passes all tests.
 
 [The tester](/resources#testsuite) is provided as a gzipped tar ball, which can
 be downloaded from the course web site. You can use it to run the tests for your
 project. This archive contains a test driver `Grade.hs` with supporting files,
-and a subdirectory `testsuite` containing Javalette test programs. 
+and a subdirectory `testsuite` containing Javalette test programs.
 
 
 ### Installation
@@ -1066,7 +1066,7 @@ manipulating (e.g. optimizing) LLVM code and backends for various architectures.
 LLVM has a large user base and is actively developed. A lot of information and
 code to download can be found at the LLVM web site `http://www.llvm.org`. You
 must use the \$llvmversion$\ version in this course; the
-[testsuite](/resources#testsuite) has only guaranteed support forthis particular 
+[testsuite](/resources#testsuite) has only guaranteed support forthis particular
 version.
 
 Also LLVM code comes in two formats, a human-readable assembler format (stored
@@ -1135,7 +1135,7 @@ An example
 
 The following LLVM code demonstrates some of the language features in LLVM. It
 also serves as an example of what kind of code a Javalette compiler could
-generate for the `fact` function described [here](#example_programs). 
+generate for the `fact` function described [here](#example_programs).
 
 ```llvm
 define i32 @main() {
@@ -1154,21 +1154,21 @@ entry:  %n = alloca i32                         ; allocate a variable on stack
         store i32 1 , i32* %r
         br label %lab0                          ; branch to lab0
 
-lab0:   %t0 = load i32* %i                      ; load i
-        %t1 = load i32* %n                      ; and n
+lab0:   %t0 = load i32, i32* %i                 ; load i
+        %t1 = load i32, i32* %n                 ; and n
         %t2 = icmp sle i32 %t0 , %t1            ; boolean %t2 will hold i <= n
         br i1 %t2 , label %lab1 , label %lab2   ; branch depending on %t2
 
-lab1:   %t3 = load i32* %r               
-        %t4 = load i32* %i
+lab1:   %t3 = load i32, i32* %r
+        %t4 = load i32, i32* %i
         %t5 = mul i32 %t3 , %t4                 ; compute i * r
         store i32 %t5 , i32* %r                 ; store product
-        %t6 = load i32* %i                      ; fetch i,
+        %t6 = load i32, i32* %i                 ; fetch i,
         %t7 = add i32 %t6 , 1                   ; add 1
         store i32 %t7 , i32* %i                 ; and store
         br label %lab0
 
-lab2:   %t8 = load i32* %r
+lab2:   %t8 = load i32, i32* %r
         ret  i32 %t8
 
 }
@@ -1227,7 +1227,7 @@ compiler:
   easiest way to produce an executable from an object file is to invoke a C
   compiler, like so: `gcc main.o`. This will produce the executable file
   `a.out`. If you want to change the name of the output, use the flag `-o`.
-    
+
     Under the hood `gcc` calls the native linker `ld` but we do not recommend
     that you do that, because it requires specifying extra libraries and
     possibly adding paths. GCC solves all that for us. If you want to see how
@@ -1254,19 +1254,19 @@ entry:
 
 define i32 @fact(i32 %__p__n) nounwind readnone {
 entry:
-	%t23 = icmp slt i32 %__p__n, 1	
+	%t23 = icmp slt i32 %__p__n, 1
 	br i1 %t23, label %lab2, label %lab1
 
-lab1:	
+lab1:
 	%indvar = phi i32 [ 0, %entry ], [ %i.01, %lab1 ]
-	%r.02 = phi i32 [ 1, %entry ], [ %t5, %lab1 ]	
-	%i.01 = add i32 %indvar, 1		
-	%t5 = mul i32 %r.02, %i.01		
-	%t7 = add i32 %indvar, 2		
-	%t2 = icmp sgt i32 %t7, %__p__n		
+	%r.02 = phi i32 [ 1, %entry ], [ %t5, %lab1 ]
+	%i.01 = add i32 %indvar, 1
+	%t5 = mul i32 %r.02, %i.01
+	%t7 = add i32 %indvar, 2
+	%t2 = icmp sgt i32 %t7, %__p__n
 	br i1 %t2, label %lab2, label %lab1
 
-lab2:	
+lab2:
 	%r.0.lcssa = phi i32 [ 1, %entry ], [ %t5, %lab1 ]
 	ret i32 %r.0.lcssa
 }
@@ -1280,7 +1280,7 @@ disassembler. The result is an optimized file, where we observe:
   `5040`. The function `fact` is not necessary anymore, but remains, since we
   have not declared that `fact` is local to this file (one could do that).
 * The definition of `fact` has been considerably optimized. In particular, there
-  is no more any use of memory; the whole computation takes place in registers. 
+  is no more any use of memory; the whole computation takes place in registers.
 * We will explain the `phi` instruction in the lectures; the effect of the first
   instruction is that the value of `%indvar` will be 0 if control comes to
   `%lab1` from the block labelled `%entry` (i.e. the first time) and the value
@@ -1321,7 +1321,7 @@ We can now run `a.out.bc` using the just-in-time compiler `lli`. Or, if we
 prefer, we can produce native assembly code with `llc`. On a x86 machine, this
 gives
 
-``` 
+```
         .text
         .align  4,0x90
         .globl  _main
@@ -1358,7 +1358,7 @@ elements themselves. The number of elements in the array is here indicated to
 be 0; it is thus your responsibility to make sure to allocate enough memory. For
 memory allocation you should use the C function `calloc`, which initializes
 allocated memory to 0. You must add a type declaration for `calloc`, but you do
-not need to worry about it at link time; LLVM:s linker includes `stdlib`. 
+not need to worry about it at link time; LLVM:s linker includes `stdlib`.
 
 Indexing uses the `getelementptr` instruction, which is discussed in detail in
 the lectures.
@@ -1367,11 +1367,11 @@ The LLVM does not include a runtime system with garbage collection. Thus, this
 extension should really include some means for reclaiming heap memory that is no
 longer needed. The simplest would be to add a statement form `free(a)`, where
 `a` is an array variable. This would be straightforward to implement, but is
-*not* necessary to get the credit. 
+*not* necessary to get the credit.
 
 More challenging would be to add automatic garbage collection. LLVM offers some
 support for this. If you are interested in doing this, we are willing to give
-further credits for that task. 
+further credits for that task.
 
 
 Multidimensional arrays
@@ -1385,7 +1385,7 @@ to iteratively allocate heap memory for subarrays.
 Structures and object-orientation.
 ----------------------------------
 
-Techniques to do these extensions are discussed in the lectures. 
+Techniques to do these extensions are discussed in the lectures.
 
 From an implementation point of view, we recommend that you start with the
 extension with pointers and structures. You can then reuse much of the machinery
@@ -1454,7 +1454,7 @@ Submission format
       generator, top level program.
     * A `Makefile` for building the compiler from source. Note that the
       `Makefile` may also be located in the root directory. The `Makefile`
-      should at least have these targets: 
+      should at least have these targets:
         * A default target (the one that is run when the command `make` is
           issued. This target should compile all source files in the compiler,
           and any runtime library files. It does not need to regenerate any
@@ -1488,16 +1488,16 @@ Submission format
 5. If your compiler `jlc` is a shell script, you should also place this file
    here before building the tar ball.
 6. When you have prepared everything, you create a compressed tar ball:
-    
+
     ```
     > tar -czf partA-1.tar.gz doc lib src
     ```
-    
+
     This produces the file `partA-1.tar.gz` that you upload to Fire.  We suggest
     the naming scheme `partX-Y.tar.gz` where X is A, B or C and Y is your
     version number (Y=1 the first time you submit, and if your submission is
     rejected and you must resubmit, the next has Y=2, etc).
-    
+
     If you prefer, you may compress with `bzip2` instead of `gzip`.
 
 
